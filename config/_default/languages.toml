@@ -1,0 +1,5 @@
+
+[zh-tw]
+  languageName = "繁體中文"
+  weight = 3
+  contentDir = "content/zh-tw"

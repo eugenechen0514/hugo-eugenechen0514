@@ -1,0 +1,6 @@
+name = "EugeneChen"
+avatar = "images/profile.png" # Avatar image. Default to "images/profile.webp".
+bio = "軟體工程師，喜歡動手做些有的沒的專案，同時也喜愛數學、攝影、桌球，慢跑、游泳、作菜。"
+#company = ""
+#location = "Earth"
+# about = "https://domain.tld" # The external about page. The internal about page will be used if not set.
