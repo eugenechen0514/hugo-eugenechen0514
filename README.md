@@ -13,6 +13,7 @@ website
 ``` 
 cd public
 git add .
-git commit -a -m "add ga"
+git commit -a -m "something"
 git push
+cd ..
 ```

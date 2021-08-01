@@ -1,6 +1,6 @@
-[submodule "public"]
-	path = public
-	url = https://github.com/eugenechen0514/eugenechen0514.github.io.git
 [submodule "themes/hugo-theme-bootstrap"]
 	path = themes/hugo-theme-bootstrap
 	url = https://github.com/razonyang/hugo-theme-bootstrap
+[submodule "public"]
+	path = public
+	url = https://github.com/eugenechen0514/eugenechen0514.github.io.git
