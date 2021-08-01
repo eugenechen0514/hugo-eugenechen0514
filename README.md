@@ -8,3 +8,11 @@ hugo server -D
 ```
 hugo -D
 ```
+
+website
+``` 
+cd public
+git add .
+git commit -a -m "add ga"
+git push
+```
