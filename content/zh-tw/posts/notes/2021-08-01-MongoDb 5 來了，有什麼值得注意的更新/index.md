@@ -37,7 +37,7 @@ MongoDB 於 7月13日釋出了 5.0 版，這次除了更新 `mongosh` shell，�
 
 使用者要顯示地用 [db.createCollection()](https://docs.mongodb.com/manual/reference/method/db.createCollection/#mongodb-method-db.createCollection) 建立資料集：
 
-```
+```javascript
 db.createCollection("weather", { timeseries: { timeField: "timestamp" } } )
 
 db.createCollection(
@@ -84,7 +84,7 @@ MongoDB 雖然會在內部建立 *timeField* 指定欄位的 index，使用者�
 [db.collection.aggregate(pipeline,options)](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregat) 可以用 *let* option 改善 pipeline 的可讀性。
 
 
-```
+```javascript
 db.cakeSales.aggregate(
    [
       { $match: {
