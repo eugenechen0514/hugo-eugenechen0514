@@ -1,0 +1,6 @@
+[submodule "themes/npqhugo"]
+	path = themes/npqhugo
+	url = https://github.com/ahmedsaadxyz/npqhugo.git
+[submodule "public"]
+	path = public
+	url = https://github.com/eugenechen0514/eugenechen0514.github.io.git

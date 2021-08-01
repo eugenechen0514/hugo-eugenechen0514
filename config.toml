@@ -1,0 +1,4 @@
+baseURL = "https://eugenechen0514.github.com/"
+languageCode = "zh-tw"
+title = "EugeneChen"
+theme = "npqhugo"
