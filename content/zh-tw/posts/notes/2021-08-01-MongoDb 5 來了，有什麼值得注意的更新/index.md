@@ -102,7 +102,7 @@ db.cakeSales.aggregate(
 接下來，在分片叢集架構上，也加入了維運用的 [`refineCollectionShardKey`](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/) 和 [`reshardCollection`](https://docs.mongodb.com/manual/reference/command/reshardCollection/#mongodb-dbcommand-dbcmd.reshardCollection)。
 
 ## Shared Cluster
-雖然在 4.4 版加入了 [`refineCollectionShardKey`](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/) 來處理 [jumbo chunks](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunks) 的議題 - 可能由於基數(cardinality) 不足引起而無法切分(split)的巨大 chunk。但還是沒有搔癢處，因為除非很有經驗或是很確定查詢資料的方式或資料結構，否則不太容易第一次取的 shard key 就會很準確。這次 5.0 版終於可以用 [`reshardCollection`](https://docs.mongodb.com/manual/reference/command/reshardCollection/#mongodb-dbcommand-dbcmd.reshardCollection) 來修改 shard key。
+雖然在 4.4 版加入了 [`refineCollectionShardKey`](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/) 來處理 [jumbo chunks](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunks) 的議題 - 可能由於基數(cardinality) 不足引起而無法切分(split)的巨大 chunk。但還是沒有搔到癢處，因為除非很有經驗或是很確定查詢資料的方式或資料結構，否則不太容易第一次取的 shard key 就會很準確。這次 5.0 版終於可以用 [`reshardCollection`](https://docs.mongodb.com/manual/reference/command/reshardCollection/#mongodb-dbcommand-dbcmd.reshardCollection) 來修改 shard key。
 
 不過別高興的太早，因為會把一個資料集分散在個各分片，通常那資料集就是很大的資料量，所以要把大量的資料重新分配，可想而知是很巨大的挑戰，使用前請詳讀 [Reshard a Collection](https://docs.mongodb.com/manual/core/sharding-reshard-a-collection/#reshard-a-collection)。
 
