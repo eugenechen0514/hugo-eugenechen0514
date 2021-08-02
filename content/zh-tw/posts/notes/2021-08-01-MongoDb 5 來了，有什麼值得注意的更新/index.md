@@ -60,7 +60,7 @@ MongoDB 雖然會在內部建立 *timeField* 指定欄位的 index，使用者�
 > db.weather24h.createIndex({ "metadata.sensorId": 1, "timestamp": 1 })
 > ```
 
-> 注意：目前 Time Series 還不能在 sharding 環境中，據說會在下來的版本持續釋出。
+> 注意：目前 Time Series 還不能在 sharding 環境中，據說會在接下來的版本持續釋出。
   
 
 ## Aggregation
