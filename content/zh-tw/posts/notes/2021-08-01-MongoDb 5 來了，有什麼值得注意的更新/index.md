@@ -55,6 +55,14 @@ db.createCollection(
 
 MongoDB 雖然會在內部建立 *timeField* 指定欄位的 index，使用者還是可以對 *metaField* 和 *timeFiel* 指定欄位建立*次索引*(*二級索引*) [Secondary Index](https://docs.mongodb.com/manual/core/timeseries/timeseries-secondary-index/#std-label-timeseries-add-secondary-index) 來改善查詢效能。
 
+> 注意：二級索引的設定有些限制， 目前只能設定在 **metadata**(如果有設定) 和 **timestamp** 指定的欄位中，如：
+> ```javascript
+> db.weather24h.createIndex({ "metadata.sensorId": 1, "timestamp": 1 })
+> ```
+
+> 注意：目前 Time Series 還不能在 sharding 環境中，據說會在下來的版本持續釋出。
+  
+
 ## Aggregation
 使用 MongoDB 一定要學習的就是 *Aggregation Pipeline*，它幫助我們以流水線的方式處理/分析整個資料集(collection)。
 
