@@ -10,7 +10,7 @@ tags = [
   "Kafka"
 ]
 images = [
-  "posts/notes/2021-08-22-一窺Kafka內部儲存資料/images/cover.png"
+  "posts/notes/2021-08-22-一窺kafka內部儲存資料/images/cover.png"
 ]
 +++
 
