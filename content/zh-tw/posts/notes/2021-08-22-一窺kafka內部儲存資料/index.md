@@ -29,7 +29,9 @@ Kafka 的基本概念如下圖：
 
 ![IMAGE](images/look-deeper.jpg)
 
-## 一個 partition 的資料夾
+> 注意：上圖的 index/timeIndex 檔案只是示意圖，它們不是一個每筆 message 都有一筆 index 資料，見下面的實測。 
+
+## 窺視一個 partition 的資料夾
 
 ```shell
 $ ll /data/kafka/kafka-logs/test.eugene.test-7
