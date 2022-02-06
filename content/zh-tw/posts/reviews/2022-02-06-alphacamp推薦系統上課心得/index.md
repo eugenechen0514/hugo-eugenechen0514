@@ -10,7 +10,7 @@ tags = [
   "AlphaCamp", "推薦系統", "pandas", "python"
 ]
 images = [
-  "posts/reviews/2022-02-06-AlphaCamp推薦系統上課心得/images/cover.png"
+  "posts/reviews/2022-02-06-alphacamp推薦系統上課心得/images/cover.png"
 ]
 +++
 
