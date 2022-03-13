@@ -45,13 +45,13 @@ verdaccio 是一個輕量級的私有NPM proxy registry，你可以：
     > 若不懂參數請見 [Day 26 - 三周目 - Docker 基本使用：看完就會架 docker 化的服務](https://ithelp.ithome.com.tw/articles/10205481)
 
 1. 用瀏覽器打開 `http://localhost:4873`，看到畫面就安裝完成了
-    ![Screen Shot 2018-10-25 at 4.04.40 PM.png](resources/1823C3305F96F810BB6EA80F1E8F15A6.png =1264x491)
+    ![Screen Shot 2018-10-25 at 4.04.40 PM.png](resources/1823C3305F96F810BB6EA80F1E8F15A6.png)
 1. 之後的 npm 操作需要帳號登入，所以為 verdaccio 伺服器加入一個帳號
     ``` shell
     npm adduser --registry  http://localhost:4873
     ```
     接下來按照指示建立一個帳號就可以了
-    ![Screen Shot 2018-10-25 at 9.21.42 PM.png](resources/1359F132D1F793435ADFDAE72F00A5A2.png =504x105)
+    ![Screen Shot 2018-10-25 at 9.21.42 PM.png](resources/1359F132D1F793435ADFDAE72F00A5A2.png)
 
 有了一個帳號才可以做登入網站、發佈的動作。
 
@@ -105,17 +105,17 @@ verdaccio 是一個輕量級的私有NPM proxy registry，你可以：
     ``` shell
     npm login --registry  http://localhost:4873
     ```
-    ![Screen Shot 2018-10-25 at 9.52.28 PM.png](resources/3D7BEB769F3A6607696799F1109CB9EF.png =573x105)
+    ![Screen Shot 2018-10-25 at 9.52.28 PM.png](resources/3D7BEB769F3A6607696799F1109CB9EF.png)
     > `npm whoami --registry  http://localhost:4873` 可以確入登入帳號
 
 1. 發佈
     ``` shell
     npm publish --registry  http://localhost:4873
     ```
-    ![Screen Shot 2018-10-25 at 10.07.25 PM.png](resources/2AA0EF9855116202CD433A817E6378BC.png =594x292)
+    ![Screen Shot 2018-10-25 at 10.07.25 PM.png](resources/2AA0EF9855116202CD433A817E6378BC.png)
     
 這樣就發佈完成了，刷新網站就會出現了
-![Screen Shot 2018-10-25 at 10.11.18 PM.png](resources/729BD5886C382C87D631010B6F65C626.png =602x292)
+![Screen Shot 2018-10-25 at 10.11.18 PM.png](resources/729BD5886C382C87D631010B6F65C626.png)
 別人只要 `npm install mylog --registry  http://localhost:4873` 就可以安裝私有套件。
 
 # 更新版號
@@ -142,7 +142,7 @@ npm 使用 Semantic Versioning (版號是有語義的)。 見下表：
 
 # 發佈要注意
 1. 你可以加入 `README.md` 檔說明套件
-    ![Screen Shot 2018-10-25 at 10.17.26 PM.png](resources/EEEF602908E3A4F3DD99D1982B1345A0.png =940x511)
+    ![Screen Shot 2018-10-25 at 10.17.26 PM.png](resources/EEEF602908E3A4F3DD99D1982B1345A0.png)
 1. 不能重覆發佈同樣的版號，你的版號一般要遞增，雖然可以 `unpublish` 但還往上加比較單純。
 1. 好好決定你的版號，這會影響到用你套件的人，如何進行更新。
     使用你套件的人若版號是從 `1.0.4` 開始，他可以在 `package.json` 中 `dependencies` 設定更新套件版號的範圍，例如：

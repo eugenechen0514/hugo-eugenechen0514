@@ -130,9 +130,9 @@ React.createElement(ShoppingList, { name: "Mark" });
 
 先等等，為什麼 babel 會知道
 `<ShoppingList name="Mark" />` 轉成 `React.createElement(ShoppingList, { name: "Mark" })`，`React.createElement()` 是哪設定的，以後有 `MIT.createElement()` 可不可以？這是因為在轉譯前有設定 babel 的 `preset`，見下圖
-![Screen Shot 2018-10-10 at 11.13.28 AM.png](resources/1D32D5AD248DE023A8F999624123C8DF.png =1387x596)
+![Screen Shot 2018-10-10 at 11.13.28 AM.png](resources/1D32D5AD248DE023A8F999624123C8DF.png)
 preset 選擇 `react` ，所以 babel 才知道要怎麼轉譯。再存細看一下，還有看到其它的 preset, es20XX 之類的，這表示 babel 可以認得的語法更多更新，都可以轉成更廣範使用/更低階/更原生的 javascript 語法，像是我們用的 ES6 語法中的 `Class`，可以用 babel 轉換成 更原生 javascript
-![Screen Shot 2018-10-10 at 1.14.03 PM.png](resources/98A851947554B2F99984D0DED7D7FE76.png =1434x707)
+![Screen Shot 2018-10-10 at 1.14.03 PM.png](resources/98A851947554B2F99984D0DED7D7FE76.png)
 這表示 **在當代瀏覽器就算沒支援太新的語法，還是可以透過轉譯器轉換成當代支援的 javascript**。早期 ES6 語法未被瀏覽器支援前就是如此，開發者使用較方便的語法開發，再轉換成可以支援javascript。
 
 > 轉譯器也可以說是 **編譯器(compiler)**，因為它的行為就是從一個語言換成另一個語言，就像 C++ 的編譯器一樣把原始碼轉轉二進碼。
@@ -159,10 +159,10 @@ preset 選擇 `react` ，所以 babel 才知道要怎麼轉譯。再存細看一
     ``` shell
     create-react-app .
     ```
-    ![Screen Shot 2018-10-10 at 1.44.46 PM.png](resources/61717E0DB8D73499B2E8DB978D8CA4D3.png =1106x632)
+    ![Screen Shot 2018-10-10 at 1.44.46 PM.png](resources/61717E0DB8D73499B2E8DB978D8CA4D3.png)
     
     會建立以下的檔案
-    ![Screen Shot 2018-10-10 at 1.46.36 PM.png](resources/4FDEE00233C5D67C458D4F0C2D61531B.png =216x411)
+    ![Screen Shot 2018-10-10 at 1.46.36 PM.png](resources/4FDEE00233C5D67C458D4F0C2D61531B.png)
     
     這就是 Node.js 的專案，`src` 資料夾放的就是前端的 React 程式碼。
 1. 執行開發用伺服器
@@ -170,7 +170,7 @@ preset 選擇 `react` ，所以 babel 才知道要怎麼轉譯。再存細看一
     npm start
     ```
     這時開啟開發伺服器，自動開啟一個網頁 `http://localhost:3000/`
-    ![Screen Shot 2018-10-10 at 1.52.40 PM.png](resources/2DE7709B8566EB3247DF984B2657589A.png =663x576)
+    ![Screen Shot 2018-10-10 at 1.52.40 PM.png](resources/2DE7709B8566EB3247DF984B2657589A.png)
     會看到這結果，就是一個 React app。
 
 ## `create-react-app` 幫我們設定了什麼？
@@ -210,15 +210,15 @@ export default App;
 ```
 存檔後回到網頁上看，網頁會自動重新整理
 
-![Screen Shot 2018-10-10 at 2.02.42 PM.png](resources/F995E3680FCFAA1444DB5C027EB83DC5.png =200x80)
+![Screen Shot 2018-10-10 at 2.02.42 PM.png](resources/F995E3680FCFAA1444DB5C027EB83DC5.png)
 
 ### 語法檢查
 也設定了 ESLint，就如同我們在 [Day 6 - 一周目- 程式碼品質工具ESLint，照顧程式碼風格](https://ithelp.ithome.com.tw/articles/10200208) 中設定 Node.js 專案的程式碼品質監控。
 
-![Screen Shot 2018-10-10 at 2.40.15 PM.png](resources/0BE41C153E8249BC0A8E682319BD9F38.png =665x330)
+![Screen Shot 2018-10-10 at 2.40.15 PM.png](resources/0BE41C153E8249BC0A8E682319BD9F38.png)
 
 只是把 ESLint 組態設定放在 `package.json` 裡的 `eslintConfig`。這裡 ESLint 也可以找的到組態設定。
-![Screen Shot 2018-10-10 at 2.44.35 PM.png](resources/507B523F5972DB9F197F58BACB54F03C.png =338x174)
+![Screen Shot 2018-10-10 at 2.44.35 PM.png](resources/507B523F5972DB9F197F58BACB54F03C.png)
 
 ### 網頁除錯模式
 它也幫我們設定可以在 Chrome devTools 裡進行除錯。
@@ -233,12 +233,12 @@ export default App;
 ### 發佈靜態檔案
 寫好的 React app 透過 `npm run build`，就會把原始碼轉譯、打包成少數js檔案，產生 `build` 資料夾，裡面就是純前端網頁的所有靜態檔案，把它們放在任何網頁伺服器(ex: nginx) 就可以透過瀏覽器讀取。
 
-![Screen Shot 2018-10-10 at 3.09.15 PM.png](resources/0B8180604FE30F4EB899FB05508E05D3.png =275x181)
+![Screen Shot 2018-10-10 at 3.09.15 PM.png](resources/0B8180604FE30F4EB899FB05508E05D3.png)
 
 ### 脫離 `create-react-app` 提供的開發環境
 不喜歡它提供的開發環境嗎？ `npm run eject` 脫離他的開發環境。
 會專案會變成
-![Screen Shot 2018-10-10 at 3.25.56 PM.png](resources/D4835650E37F433A1EEBB51670314EE7.png =939x656)
+![Screen Shot 2018-10-10 at 3.25.56 PM.png](resources/D4835650E37F433A1EEBB51670314EE7.png)
 這就是他的開發環境本來的面貌：用到 [Webpack](https://webpack.js.org/), [Babel](https://babeljs.io/), [ESLint](https://eslint.org/), [Jest](https://jestjs.io/)，和腳本…等。所有的工具都是要安裝、設定才能用在開發環境，對於新手來說超不友善，所以 `create-react-app` 幫我們省去了不少麻煩，專心開發 React app。
 
 本主題不會脫離 `create-react-app` 的開發環境，所以不需要執行`npm run eject`。
@@ -246,7 +246,7 @@ export default App;
 > 這過程是不可還原的，所以用之前確認清楚。
 
 > 我自己測試時發現，`create-react-app` 在建立 React app 時有開 local git repository，如果沒 commit 的異動檔案，`npm run eject` 不能運作。
-![Screen Shot 2018-10-10 at 3.24.06 PM.png](resources/F9B14BCA2B7F4D3D1E256980C4A05FA5.png =718x276)
+![Screen Shot 2018-10-10 at 3.24.06 PM.png](resources/F9B14BCA2B7F4D3D1E256980C4A05FA5.png)
 
 
 # 總結

@@ -22,10 +22,10 @@ series = [
 
 # 回憶
 昨天介紹了 Flux 架構和它的實作套件 Redux。最後我們寫了簡單的 Redux 程式，體驗 Redux 如何運作。以 Flux 架構圖來說， 昨天的內容是
-![30天鐵人-Day23-react-redux.png](resources/3D9E2E620F868C688621B5502DAC9AE1.png =692x202)
+![30天鐵人-Day23-react-redux.png](resources/3D9E2E620F868C688621B5502DAC9AE1.png)
 
 今天我們要專注在與 React 的串接
-![30天鐵人-Day23-react-redux2.png](resources/7158DCD5A961E4454FA0E74431502F7C.png =713x233)
+![30天鐵人-Day23-react-redux2.png](resources/7158DCD5A961E4454FA0E74431502F7C.png)
 
 # 目標
 1. 實作 Redux 與 React 的串接
@@ -87,7 +87,7 @@ series = [
 為了完成這件事要用到 [React Context](https://reactjs.org/docs/context.html)，這是由 React 提供的，它的功用是在 component tree 中的上層把值送入後，底下的所有 subcomponent 任何一層都可以拿的到這值，而不用一個個傳遞下去。
 
 舉官方例子：
-![30天鐵人-Day23-Context.png](resources/844A621BFDBFCD0C04FB33A4CD8A6271.png =854x462)
+![30天鐵人-Day23-Context.png](resources/844A621BFDBFCD0C04FB33A4CD8A6271.png)
 (A)圖是本來的 component tree, 假設有個 `theme value` 要從 `App` 送 到 `ThemedButton` 中，用 Context API 後邏輯上就是 (B) 圖，實際使用Contenx API 就是 (C)圖。
 
 ``` javascript
@@ -200,7 +200,7 @@ Controller-View (component) 雖然沒有存 state，但它與 store 串連，所
 
 #### 加入 message state：配置空間和設定預設值
 因為 LoginBox container 的 message 的值我們還沒有設定，所以你打開 `npm run start`，只會看到
-![Screen Shot 2018-10-22 at 4.20.03 PM.png](resources/764482331EE217FC68671830449047E5.png =171x69)
+![Screen Shot 2018-10-22 at 4.20.03 PM.png](resources/764482331EE217FC68671830449047E5.png)
 
 1. 在 `RootReducer` 中設定 message state 變數和它初始的值
     ``` javascript
@@ -224,7 +224,7 @@ Controller-View (component) 雖然沒有存 state，但它與 store 串連，所
     `connect(...)(LoginBox)` 就好像把 `message` 送入 LoginBox pure component, ex: `<LoginBox message={state.message} />`
 
 結果如下：
-![Screen Shot 2018-10-22 at 4.29.35 PM.png](resources/EBBDA77C60987DB2232DB8F0CB7F62FF.png =194x67)
+![Screen Shot 2018-10-22 at 4.29.35 PM.png](resources/EBBDA77C60987DB2232DB8F0CB7F62FF.png)
 
 #### 加入行為
 假如我們按一個 Button 就要改變 message 的值。
@@ -285,12 +285,12 @@ Controller-View (component) 雖然沒有存 state，但它與 store 串連，所
     ```
 
 結果如下：
-![Screen Shot 2018-10-22 at 5.03.44 PM.png](resources/2182DBA348A61455C84E39A564F00F93.png =278x59)
+![Screen Shot 2018-10-22 at 5.03.44 PM.png](resources/2182DBA348A61455C84E39A564F00F93.png)
 按下Submit，message 改變了
-![Screen Shot 2018-10-22 at 5.03.33 PM.png](resources/3B86E890F5085D380AD8BCCCC0373A0E.png =241x68)
+![Screen Shot 2018-10-22 at 5.03.33 PM.png](resources/3B86E890F5085D380AD8BCCCC0373A0E.png)
 
 最後看一下我們做了什麼？我們建了 Sore/Action/Container/Components 資料夾，來附合 Flux 架構，大部分 Flux 架構的前端專案都有類似的資料夾
-![Screen Shot 2018-10-23 at 11.18.56 AM.png](resources/1C92B061E5F97D59FE187129D0E5A01C.png =272x386)
+![Screen Shot 2018-10-23 at 11.18.56 AM.png](resources/1C92B061E5F97D59FE187129D0E5A01C.png)
 
 # 在網頁中如何確認 Redux 有運作
 Redux DevTools 用來看 Redux 運作，更明確的說，它在監控「dispatcher 和 action 的運作」及「action 如何影響 state」。馬上來試試看：
@@ -322,17 +322,17 @@ Redux DevTools 用來看 Redux 運作，更明確的說，它在監控「dispatc
     * `compose()` 是拿來以合併 store enhancer 用的。舉個例子：`compose(Enhancer1, Enhancer2)(createStore) => Enhancer1(Enhancer2(createStore))`
 1. 開啟 Chrome DevTools(空白處右鍵 Inspect)，**Redux** 頁籤
     1. 一開啟網站的狀態
-        ![Screen Shot 2018-10-22 at 10.46.30 PM.png](resources/CCBE98CA80B89EAAE034AE685A3616FB.png =717x320)
+        ![Screen Shot 2018-10-22 at 10.46.30 PM.png](resources/CCBE98CA80B89EAAE034AE685A3616FB.png)
     1. 按下 Submit 後發出 action (action type 是 `identityOnClickSubmit`)
-        ![Screen Shot 2018-10-22 at 10.46.39 PM.png](resources/E753286E3A2AC226C515F31736003784.png =888x384)
+        ![Screen Shot 2018-10-22 at 10.46.39 PM.png](resources/E753286E3A2AC226C515F31736003784.png)
 
 Redux DevTools 有三種模式
 1. Log monitor：用來看 action log
-    ![Screen Shot 2018-10-22 at 10.46.39 PM.png](resources/E753286E3A2AC226C515F31736003784.png =888x384)
+    ![Screen Shot 2018-10-22 at 10.46.39 PM.png](resources/E753286E3A2AC226C515F31736003784.png)
 1. Inspector：最完整的模式。能看 Action/State/Diff/Test，但這模式太大型的網站可能會很慢或當掉
-    ![Screen Shot 2018-10-22 at 10.50.40 PM.png](resources/C9DA046AFD3EA0749DBE52FB0C20DF04.png =1378x584)
+    ![Screen Shot 2018-10-22 at 10.50.40 PM.png](resources/C9DA046AFD3EA0749DBE52FB0C20DF04.png)
 1. Chart：state 的結構圖。 redux 的串接(`combineReducers()`) 會讓 state 是巢狀 object，這模式可以看 state 結構和各個 state 值。
-    ![Screen Shot 2018-10-22 at 10.50.59 PM.png](resources/A64FCA104E3252AB2FD0D3B23E205020.png =1376x581)
+    ![Screen Shot 2018-10-22 at 10.50.59 PM.png](resources/A64FCA104E3252AB2FD0D3B23E205020.png)
 
 每個模式都有它特別的地方，自己玩看看。
 

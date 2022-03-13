@@ -26,7 +26,7 @@ series = [
 > ![https://ithelp.ithome.com.tw/upload/images/20190218/20110371BgMzX9Muzd.png](https://ithelp.ithome.com.tw/upload/images/20190218/20110371BgMzX9Muzd.png)
 
 此處的例子太過複雜沒有表現出 **依序/順序** 的重點。內文增加一些說明，如下：
-![Screen Shot 2019-02-18 at 10.09.26 PM.png](resources/3914EE334BB9546E34D3725418009E57.png =731x572)
+![Screen Shot 2019-02-18 at 10.09.26 PM.png](resources/3914EE334BB9546E34D3725418009E57.png)
 
 
 # 回憶
@@ -298,8 +298,8 @@ foo(); // reject promise with Error('foo 2') reason
 Promise 適合拿來
 1. 包裝具有 callback 的函數，以修改函數簽章
 1. 支援度，但 `async/await` 就算不支援也可以用[轉譯的](https://ithelp.ithome.com.tw/articles/10200734)
-    ![Screen Shot 2018-10-14 at 2.52.08 PM.png](resources/09C6F0CAE653E3A5579B0C9C85DB1C12.png =1264x482)
-    ![Screen Shot 2018-10-14 at 2.51.28 PM.png](resources/9B8A7DC720C5D6B8C1E0BCEB1AAFDC3A.png =1260x485)
+    ![Screen Shot 2018-10-14 at 2.52.08 PM.png](resources/09C6F0CAE653E3A5579B0C9C85DB1C12.png)
+    ![Screen Shot 2018-10-14 at 2.51.28 PM.png](resources/9B8A7DC720C5D6B8C1E0BCEB1AAFDC3A.png)
 1. 鍊式寫起來可以用比較短的程式碼，不像 `async function()` 還要包裝
 1. 截斷中間的 reject promise，debug 時很好用，反觀 `async function()` 要用 `try...catch`這種產生分支的語法。
     ``` javascript

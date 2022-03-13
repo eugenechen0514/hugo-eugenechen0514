@@ -58,7 +58,7 @@ services:
 
 ```
 在用指令 `docker-compose` 建立並執行它們：
-![Screen Shot 2018-10-30 at 9.57.03 AM.png](resources/D464C76060D7FCBCEECD0D373BB080F9.png =757x101)
+![Screen Shot 2018-10-30 at 9.57.03 AM.png](resources/D464C76060D7FCBCEECD0D373BB080F9.png)
 
 仔細看有一行：`Creating network "ithelp-30dayfullstack-day30_default" with the default driver`。這是什麼呢？
 這就是今天要討論的內容：**network** 。 network 很重要，因為關係它各服務間的通信。
@@ -79,7 +79,7 @@ services:
 這是 Docker Compose 預設的網路模式，所有有 service 預設 `network_mode:` 都是 **bridge** (見 [network_mode](https://docs.docker.com/compose/compose-file/compose-file-v2/#network_mode))。當我們 `docker-compose up` 時，會建立一個名為 `<dir_name>_default` 的 network 出來，所有 bridge mode 的 container 會自己配網路卡並接上那個預設的 network。
 
 我們在回憶中的 Compose file，用圖解如下：
-![30天鐵人-Day30-bridge.png](resources/6D19119BD54218185DAF088958A6020A.png =681x456)
+![30天鐵人-Day30-bridge.png](resources/6D19119BD54218185DAF088958A6020A.png)
 圖片重繪自：[Networking for Docker Containers (a Primer) Part I](https://mesosphere.com/blog/networking-docker-containers/)
 
 > `172.28.0.0/16` 是指一網路的網段從 `172.28.0.1 ~ 172.28.255.255`，子網路的主機可以互相通訊。 16 是指 16 bits 的子網路遮罩 `255.255.0.0`。
@@ -101,17 +101,17 @@ Container 間的通訊有幾個方法：
     `backend` 可以訪問 `database`。
 1. 用 IP: 我們也可以直接指定 IP。 
     指令 `docker network inspect ithelp-30dayfullstack-day30_default` 可以查詢「接上此 network 的 container 資訊」
-    ![Screen Shot 2018-10-30 at 10.43.26 AM.png](resources/70981B2ED1B6CEED758D5301778CC0C5.png =711x908)
+    ![Screen Shot 2018-10-30 at 10.43.26 AM.png](resources/70981B2ED1B6CEED758D5301778CC0C5.png)
     `ithelp-30dayfullstack-day30_default` 有三個容器及它們配置的 IP。另外還有 gateway 和 subnet。
 
 ### 外界(NET-0)如何存取 container： 外界(NET-0) -> Container 
 
 若外界 `192.168.0.5` 要訪問我們的主機 `192.168.0.2:80` 的 `ithelp.front` 服務，我們要設定 `--publish`/`-p`。就是我們在 Docker file 中的 `ports:` 或 `docker run -p` 設定 publish。同時， [Network Address Translation(NAT)](https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2) 也會自動設定內外部 network 的轉換。
 
-![30天鐵人-Day30-bridge2.png](resources/4700071906B74D286D0B2B38714BFFCC.png =681x456)
+![30天鐵人-Day30-bridge2.png](resources/4700071906B74D286D0B2B38714BFFCC.png)
 
 從外界來看，邏輯上就像：
-![30天鐵人-Day30-path.png](resources/2EB68D2AD07C8083CFD0BD0EB2189B17.png =909x456)
+![30天鐵人-Day30-path.png](resources/2EB68D2AD07C8083CFD0BD0EB2189B17.png)
 外界不會發現內部的網路。
 
 ### 存取 host/外界 ： Container -> 外界(NET-0)/HOST
@@ -126,7 +126,7 @@ container 建立時會配置網路設定，沒重建立的話 IP 是不會變的
 > 你可以登入 container (`docker run -it <id/container_name> bash`) 試打看看(ex: telenet/ping/wget/curl)，就可以知道有沒有通。
 
 指令 `docker network inspect ithelp-30dayfullstack-day30_default` 就可以查到 gateway IP。
-![Screen Shot 2018-10-30 at 11.29.45 AM.png](resources/66D816D3DA486FF35BD1ADFD7901BF77.png =615x341)
+![Screen Shot 2018-10-30 at 11.29.45 AM.png](resources/66D816D3DA486FF35BD1ADFD7901BF77.png)
 
 #### 固定 IP 情況
 > 練習時，你可能要 `docker-compose -f docker-compose-bridge.yml down` 刪除之前的容器、網路。
@@ -185,7 +185,7 @@ networks:
 ```
 
 執行 `docker-compose -f docker-compose-bridge-static.yml up`，完成後去看看 ` docker network inspect ithelp-30dayfullstack-day30_ithelp_application`，就是我們固定的 IP
-![Screen Shot 2018-10-30 at 11.49.51 AM.png](resources/FA3A300E25025EBB71A143EAB33499C0.png =727x905)
+![Screen Shot 2018-10-30 at 11.49.51 AM.png](resources/FA3A300E25025EBB71A143EAB33499C0.png)
 
 
 ## Host mode
@@ -225,7 +225,7 @@ services:
 
 ```
 
-![30天鐵人-Day30-host.png](resources/700A8BEFEAC253D86129245858C3B7C7.png =695x456)
+![30天鐵人-Day30-host.png](resources/700A8BEFEAC253D86129245858C3B7C7.png)
 圖片重繪自：[Networking for Docker Containers (a Primer) Part I](https://mesosphere.com/blog/networking-docker-containers/)
 
 ##  Docker Network mode 小總結

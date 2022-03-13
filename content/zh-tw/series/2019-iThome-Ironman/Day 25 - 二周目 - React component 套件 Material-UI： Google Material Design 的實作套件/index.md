@@ -52,7 +52,7 @@ Material-UI 歷經多次的 API 改版，現在的套件變的比較有組識了
 ## 大量的基本 component
 
 ### 體驗一下 Material-UI
-我們之前在 `hello-react` 中加入了一個 button 來發出一個 action，如圖 ![Screen Shot 2018-10-24 at 2.11.33 PM.png](resources/9321BFFA2E6A26C6D18106779B76BD69.png =296x75)
+我們之前在 `hello-react` 中加入了一個 button 來發出一個 action，如圖 ![Screen Shot 2018-10-24 at 2.11.33 PM.png](resources/9321BFFA2E6A26C6D18106779B76BD69.png)
 
 現在我們來換成 Material-UI Button。修改前試想一下，我們要改的是畫面，所以應該改哪個資料夾的檔案呢？actions/stores/reducers/components/containers 哪一個？
 若你之前有跟上文章的內容應該可以想到，答應就是
@@ -88,21 +88,21 @@ class LoginBox extends Component {
 
 #### 這麼多 component, 要怎麼用 Material-UI？
 一打開 **Component API**  有沒有嚇一跳呢？要怎麼把它們組起來？
-![Screen Shot 2018-10-24 at 2.27.53 PM.png](resources/4DC79B581CFE9397B16BD4B30163AE9F.png =209x784)
+![Screen Shot 2018-10-24 at 2.27.53 PM.png](resources/4DC79B581CFE9397B16BD4B30163AE9F.png)
 
 其實，可以不用一個個查，常用的 Demo 都有人整理好了，只要開 **Component Demos**
-![Screen Shot 2018-10-24 at 2.29.12 PM.png](resources/E4AD2B7BDE20904E066C442C4A7A18BD.png =224x722)
+![Screen Shot 2018-10-24 at 2.29.12 PM.png](resources/E4AD2B7BDE20904E066C442C4A7A18BD.png)
 選你要的畫面 Demo，然後找到 **Show the source** 按鈕
-![Screen Shot 2018-10-24 at 2.30.37 PM (2).png](resources/8ADCD55F08B984C186668AFD60181DDB.png =713x357)
+![Screen Shot 2018-10-24 at 2.30.37 PM (2).png](resources/8ADCD55F08B984C186668AFD60181DDB.png)
 就可以查到原始碼了，再貼到自己的專案中，就可以用了。
 
 每個 Demo 頁面最下面還很貼心的附上相關的 API 連結，就可以進去看更多 component 用法。
-![Screen Shot 2018-10-24 at 2.35.36 PM.png](resources/831F95A20F43D7A9A80E54ED96EDE472.png =832x542)
+![Screen Shot 2018-10-24 at 2.35.36 PM.png](resources/831F95A20F43D7A9A80E54ED96EDE472.png)
 
 ## 樣式(css style)注入系統：「封裝 sytle」 或 「修改/替換樣式」
 
 幾乎所有的 Demo code 最後面都會看到 `withStyles` 這個 HOC，如下圖：
-![Screen Shot 2018-10-24 at 2.42.28 PM.png](resources/6B759497CE10C7B079ECA0B448B1B915.png =520x246)
+![Screen Shot 2018-10-24 at 2.42.28 PM.png](resources/6B759497CE10C7B079ECA0B448B1B915.png)
 這是那來封裝 sytle 或 overwrite style 用的，它的簽章如下：
 ```
 styles => component => component
@@ -187,7 +187,7 @@ classNames({ [props.classes.myRoot]: true, [props.classes.myLayout]: false }); /
 
 ### 覆寫(overwrite) style: 修改/替換樣式
 假如我們打開 [Button](https://material-ui.com/api/button/)，往下看到 CSS API
-![Screen Shot 2018-10-24 at 3.32.56 PM.png](resources/F24952F503F1A644E43FC29D453A7E28.png =1107x685)
+![Screen Shot 2018-10-24 at 3.32.56 PM.png](resources/F24952F503F1A644E43FC29D453A7E28.png)
 
 這就是你可以覆寫原始 component 樣式的 API。
 

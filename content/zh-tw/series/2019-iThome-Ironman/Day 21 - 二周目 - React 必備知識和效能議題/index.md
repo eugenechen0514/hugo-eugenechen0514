@@ -38,7 +38,7 @@ React 快速入門
 
 # 如何找專案結構？
 我們用 `create-react-app` 建立了前端專案，它幫我們產生了專案，資料夾如下：
-![Screen Shot 2018-10-21 at 1.55.18 PM.png](resources/757AA78CE48DC5B1623C5980214E9448.png =214x313)
+![Screen Shot 2018-10-21 at 1.55.18 PM.png](resources/757AA78CE48DC5B1623C5980214E9448.png)
 顯然只有基本的結構，我們未來要組織出自己的結構。
 
 除了自己組識，上網找別人做好的也是個不錯的選擇，很多人會把初始專案結構放在 github 之類的，不過你得先知道你想要的組合套餐
@@ -53,10 +53,10 @@ CSS extension: [sass](https://sass-lang.com/) / [less](http://lesscss.org/)
 
 例如，上 google 查 `webpack react redux sass`，會看到
 
-![Screen Shot 2018-10-21 at 2.19.06 PM.png](resources/0735A48B08ABC8DF3D5FBBF653B367C2.png =672x298)
+![Screen Shot 2018-10-21 at 2.19.06 PM.png](resources/0735A48B08ABC8DF3D5FBBF653B367C2.png)
 
 把它們下載看看，它們怎麼組織專案的
-![Screen Shot 2018-10-21 at 2.22.47 PM.png](resources/95CCF8CA9B156FF62BF7F71D23621A99.png =235x467)![Screen Shot 2018-10-21 at 2.24.13 PM.png](resources/93A0AFC13A234B6A540B5329E37B2FFE.png =241x732)
+![Screen Shot 2018-10-21 at 2.22.47 PM.png](resources/95CCF8CA9B156FF62BF7F71D23621A99.png)![Screen Shot 2018-10-21 at 2.24.13 PM.png](resources/93A0AFC13A234B6A540B5329E37B2FFE.png)
 
 學習最快的方法就是模仿，從別人做好的專案架構學習、查文件資料，會學的很快的。
 
@@ -69,7 +69,7 @@ HTML 和　CSS 基本知識可以自行上網查，但有點東西我覺得要�
 * HTML Attributes：`style`, `class`
 * HTML Event Attributes: `onClick`
 * CSS: Box Model (圖來自[CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp))
-    ![Screen Shot 2018-10-21 at 2.36.19 PM.png](resources/D4988BB703B33924BB6A317DC513AA36.png =651x409)
+    ![Screen Shot 2018-10-21 at 2.36.19 PM.png](resources/D4988BB703B33924BB6A317DC513AA36.png)
 
 剩下的東西我覺得想要什麼再查就可以了。
 
@@ -127,7 +127,7 @@ class App extends React.Component {
 1. `props`： 是由呼叫者(caller)所送入元件中。例如 `LobinBox` 的 `onClickButton` 的值是由 `App` 在 `render()`時送入。`props` 在 `LoginBox` 中不會改變，從 `LoginBox` 角度看，`props` 就像是常數。
 1. `state`： 是元件本身的狀態，它會隨著時間或行為改變。例如 `App` 的 `state.message` 點擊 `<button />` 後會執行 `this.props.onClickButton`，又因為其值是 `App` 中的 `handleClick`，所以 `handleClick()` 會執行，導致 `setState()`執行使  `App` 的 `state.message` 改變。
 
-![30天鐵人-Day21-props-state.png](resources/08F209F384572A56B67113F9BE596442.png =681x457)
+![30天鐵人-Day21-props-state.png](resources/08F209F384572A56B67113F9BE596442.png)
 
 另外，`props.children` 這個很特別，它指向被 component 包著的內容，見下面
 ``` javascript
@@ -164,7 +164,7 @@ class App extends React.Component {
 ## React component lifecycle (生命周期)
 
 它們是 component 的在建立和渲染的過程 (見官方文件：[Component lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle))，以 component class 出發，react 會做以下的過程：
-![30天鐵人-Day21-component.png](resources/F568B18253FD2F069C8062652F2F17E7.png =896x106)
+![30天鐵人-Day21-component.png](resources/F568B18253FD2F069C8062652F2F17E7.png)
 
 依照 component 被掛入 DOM 的過程分類，過程中會依序執行 component 的函數如下：
 * Mounting：component 被建立實體(即 react element)後，渲染到 DOM 的過程
@@ -185,10 +185,10 @@ class App extends React.Component {
 
 [Live Demo - React lifecycle](https://codesandbox.io/s/8k9k5zm060)
 範列中把所有的過程都印了出來，可以去看看
-![Screen Shot 2018-10-21 at 4.43.18 PM.png](resources/4DF9C9385FD1AF5C90253B0946E0E8F2.png =829x545)
+![Screen Shot 2018-10-21 at 4.43.18 PM.png](resources/4DF9C9385FD1AF5C90253B0946E0E8F2.png)
 
 當你按下 **toggle**，就會看到 **Updating** 的過程
-![Screen Shot 2018-10-21 at 4.44.16 PM.png](resources/3FCB2694B424A7573FCFE4937A34ECD2.png =937x627)
+![Screen Shot 2018-10-21 at 4.44.16 PM.png](resources/3FCB2694B424A7573FCFE4937A34ECD2.png)
 
 我們雖然不會一一解釋它們，但有東西要釐清一下：
 1. `getDerivedStateFromProps(props, state)` 是指由使用者送入的 `props`(可能是Mounting 或 Updating 發生) 和目前 compoent 的 `state` 產生新的 `state`。我們之前過 `state` 是 compoent 本身的狀態，當有新 `props` 來到時自然需要改變。

@@ -72,9 +72,9 @@ Node.js雖然是CommonJS規範, 但不久的將來也可以用 **import** 了，
 
 下面可以看到完整的範例：
 1. [Node.js module usage](https://codesandbox.io/s/lr5joz2r0l?view=editor)：可以在裡面開一個terminal，輸入 `node ./src/index.js`，看到結果
-![Screen Shot 2018-10-06 at 8.50.37 PM.png](resources/A8B36EE8324F1190397EEB1A7BE82DDF.png =950x667)
+![Screen Shot 2018-10-06 at 8.50.37 PM.png](resources/A8B36EE8324F1190397EEB1A7BE82DDF.png)
 1. [ES6 module usage](https://codesandbox.io/s/29j1rppo0?view=editor)：可以看 Console 頁籤看到結果
-![Screen Shot 2018-10-07 at 4.08.56 PM.png](resources/BAEEA290915AE985381888BF6EB5CF42.png =521x593)
+![Screen Shot 2018-10-07 at 4.08.56 PM.png](resources/BAEEA290915AE985381888BF6EB5CF42.png)
 
 
 ## 箭頭函數(Arrow function)
@@ -98,7 +98,7 @@ Node.js雖然是CommonJS規範, 但不久的將來也可以用 **import** 了，
     是不是更簡化了阿～ 
     注意，因為回傳是物件，但物件的 `{…}` 會和函數的`{…}`區塊弄混，所以要用 `(…)` 包起來
 1. 清楚的函數表達作用：常出現在 [Functional programming](https://en.wikipedia.org/wiki/Functional_programming) 中，像是 [Ramda](https://ramdajs.com/docs/#equals)文件中經常會出現用來表達作用。
-![Screen Shot 2018-10-07 at 10.05.14 AM.png](resources/0506600CB8E142DF3CC8491BDA4A227E.png =756x373)
+![Screen Shot 2018-10-07 at 10.05.14 AM.png](resources/0506600CB8E142DF3CC8491BDA4A227E.png)
 我們舉線性函數例子，你覺得哪個清楚表達作用呢？
 
     ``` javascript

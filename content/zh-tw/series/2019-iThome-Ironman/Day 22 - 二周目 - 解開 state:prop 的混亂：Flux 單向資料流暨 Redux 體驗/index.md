@@ -25,19 +25,19 @@ series = [
 昨天介紹了 React 的基本概念 state/prop，它們是控制畫面渲染的變數。然而 component 的 state/prop 混合使用會使渲染邏輯變的混亂。
 
 考慮登入畫面：
-![30天鐵人-Day22-redux1.png](resources/81F1B6D99526C2AB05FE8712DDFC58BA.png =201x211)
+![30天鐵人-Day22-redux1.png](resources/81F1B6D99526C2AB05FE8712DDFC58BA.png)
 
 把 username 和 password 分成兩個 component後，關於 `hide` 值就有二種可能的 component tree 設計。
 1. (component tree 1) 放在 password component 中的 state
-    ![30天鐵人-Day22-redux2.png](resources/0EB2722354C15374D52CC1565F831C3A.png =711x351)
+    ![30天鐵人-Day22-redux2.png](resources/0EB2722354C15374D52CC1565F831C3A.png)
 
 1. (component tree 2) 放在最上層 component 中的 state，然後在送到  password component 的 prop
-    ![30天鐵人-Day22-redux3.png](resources/9101CF7A92FCC9773FFB45187C9EF6A2.png =711x271)
+    ![30天鐵人-Day22-redux3.png](resources/9101CF7A92FCC9773FFB45187C9EF6A2.png)
 
 假如當使用者按下 **SIGN IN** 時，希望密碼是隱藏的也就是 `hide` 需要更動。因為 **SIGN IN** 是在最上層的 component， 在上面 component tree 1 就會有設定上的困難(因為 state 是在 password component 內部)，component tree 2 反而沒有。
 
 試想當你的 component tree 更大時，你應該怎麼管理那些 state 呢？
-![30天鐵人-Day22-tree.png](resources/BE3327242F07CABCFF2B0CB217BCB891.png =546x251)
+![30天鐵人-Day22-tree.png](resources/BE3327242F07CABCFF2B0CB217BCB891.png)
 
 # 目標
 
@@ -55,7 +55,7 @@ Facebook 提出了 [Flux](https://facebook.github.io/flux/docs/in-depth-overview
 Flux 希望資料的流動是單一的 (單向資料流)，使用者行為會產生 **Action** 送入 **Dispatcher**，**Dispatcher** 會把 **Action** 派分到「有註冊要監聽Action的 **Store**」，然後 **Store** 依照 **Action** 的 **識別字串** 決定如何修改 state，當 **Store** 修改完 state，會發出 ***change*** 訊息。最後， 註冊 ***change*** 訊息的 **View** ，收到來自  **Store**  的通知，就會執行 `setState()` 更新畫面(更新內部的component)。
 
 它的流程如下：
-![30天鐵人-Day22-flux.png](resources/7FE7502C5C3B8011E5F76B47B3632A5F.png =671x171)
+![30天鐵人-Day22-flux.png](resources/7FE7502C5C3B8011E5F76B47B3632A5F.png)
 
 1. Action：一次修改 state 的行為
 2. Dispatcher：分派 Action 到 Store 的單元
@@ -68,7 +68,7 @@ Flux 希望資料的流動是單一的 (單向資料流)，使用者行為會產
 3. 單元非指向性：每個區塊都是獨立運作的，像是： 一個 **Dispatcher** 能被多個 **Store** 註冊、不同 **View** 可以監聽不同的 **Store**，任一個單元想接誰就接誰，沒有限定某一個store 只能接某一個 view。
 
 我們注意看到「註冊 **Store** 的(***change***)訊息的 **View**」，它是 state 值流入的第一個 view，被稱成 `Controller-View` 它負責連結 **Store** 取出 state 值和引起 `setState()`，然後送入裡面的 view (即內部 view 的 props)。最後的架構圖如下：
-![30天鐵人-Day22-fluxfull.png](resources/55470DF888CA346EEE3D372A0E8F52B3.png =881x366)
+![30天鐵人-Day22-fluxfull.png](resources/55470DF888CA346EEE3D372A0E8F52B3.png)
 
 ## Flux 的實現套件
 
@@ -83,7 +83,7 @@ Flux 希望資料的流動是單一的 (單向資料流)，使用者行為會產
 ![IMAGE](resources/ADA228FD7E87D43B5EFDFBC325FD1FCF.jpg =926x480)
 
 然而 Redux 簡化 Flux 的概念，變成 (截錄修改[淺談 React、Flux 與 Redux](http://imweb.io/topic/57711e37f0a5487b05f325b5))
-![a1.png](resources/0F5858C3B3104AF1E44EC94BBEB7CBD6.png =932x445)
+![a1.png](resources/0F5858C3B3104AF1E44EC94BBEB7CBD6.png)
 
 1. 只有一個 Store：所有 state 放在一個全局的 store 中。這也是最大的差別，不同於 Flux Store 可以有多個 Store，它們各自為戰。
 2. 只有一個 Dispatcher：因為只有一個 Store ，所以全局也只需要有一個 dispatcher，它被隱藏在 store 中。只需 `store.dispatch(action)` 就可以引發分派 action。

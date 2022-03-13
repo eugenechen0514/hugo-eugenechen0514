@@ -49,7 +49,7 @@ series = [
 1. 執行 `npm run start`
 2. 開啟Chrome 再開 devTools，並選擇 Console 頁籤，打開 `http://localhost:3000/ayncRequest.html` 剛剛的頁面
     會看到以下的結果
-    ![Screen Shot 2018-10-10 at 6.34.44 PM.png](resources/0443C66379AC666921939B23F742EEEC.png =725x388)
+    ![Screen Shot 2018-10-10 at 6.34.44 PM.png](resources/0443C66379AC666921939B23F742EEEC.png)
     `console.log()` 會印出訊息在 Console 中
 
 瀏覽器頁面渲染到一半，一看到 `<script/>` 就會立刻執行裡面的 javascript，也就是說 `console.log()` 立刻被執行
@@ -59,8 +59,8 @@ series = [
 ```
 
 > 試試看：你可以用 debug 模式証實它真的有停在那裡。若不會操作，可以看 [Day 10- 一周目- 開始玩轉前端(一)](https://ithelp.ithome.com.tw/articles/10200734)
-![Screen Shot 2018-10-10 at 6.34.58 PM.png](resources/D4540A7A2637C4BA91039D050A31CC5C.png =747x402)
-![Screen Shot 2018-10-10 at 6.35.05 PM.png](resources/24D8053E74BC5A3BE0FE1C0542DA020E.png =785x390)
+![Screen Shot 2018-10-10 at 6.34.58 PM.png](resources/D4540A7A2637C4BA91039D050A31CC5C.png)
+![Screen Shot 2018-10-10 at 6.35.05 PM.png](resources/24D8053E74BC5A3BE0FE1C0542DA020E.png)
 
 ## 一個非同步的例子：
 修改 `ayncRequest.html` 加入 [`setTimeout()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout)
@@ -126,7 +126,7 @@ series = [
     ```
     `PORT`是環境變數，port 換成 ***3001***
 1. 處理 [Cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)問題。因為我們把前後端分開，在前端網頁會打非同步api(request)到不同主機的位置，**瀏覽器** 基於安全性會拒絕 request，且會出現下圖：
-    ![Screen Shot 2018-10-10 at 9.10.20 PM.png](resources/784ADDF2F25E4447A44EF7FA8F48522A.png =780x212)
+    ![Screen Shot 2018-10-10 at 9.10.20 PM.png](resources/784ADDF2F25E4447A44EF7FA8F48522A.png)
     1. 後端安裝套件 `npm install cors --save`
     2. 後端修改 `./app.js`
         ``` javascript
@@ -150,7 +150,7 @@ series = [
 2. `fetch()` 函數
 
 ### XMLHttpRequest
-![Screen Shot 2018-10-10 at 4.15.13 PM.png](resources/CACB08631602DBA76B0D7A5A22867B00.png =1296x552)
+![Screen Shot 2018-10-10 at 4.15.13 PM.png](resources/CACB08631602DBA76B0D7A5A22867B00.png)
 [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 是比較是很早期就出現的東西，用起來有點麻煩。使用前要建立 XMLHttpRequest 物件，再設定一些 callback，才送出 request。
 
 1. 開啟前端 `./src/App.js`，加入 `componentDidMount()`成員函數
@@ -190,7 +190,7 @@ series = [
     }
     ```
 1. 得到結果
-    ![Screen Shot 2018-10-11 at 8.04.36 PM.png](resources/5838D1A2AF574AAEA63719E1973F46D4.png =481x347)
+    ![Screen Shot 2018-10-11 at 8.04.36 PM.png](resources/5838D1A2AF574AAEA63719E1973F46D4.png)
 
 這裡 `componentDidMount()` 是當 component 的渲染結果(html)插入 DOM tree 中就會呼叫。
 
@@ -199,7 +199,7 @@ series = [
 每次 request 狀態改變，`onreadystatechange` 就會被呼叫，當 `readyState` 等於 `4` 就是 request 完成(不論成功還是失敗)。更多狀態見：[AJAX - onreadystatechange 事件](http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_onreadystatechange.asp)
 
 ### fetch()
-![Screen Shot 2018-10-10 at 4.15.21 PM.png](resources/D9A3B20D47B439BA08AE8B3CA2CA25A1.png =1288x472)
+![Screen Shot 2018-10-10 at 4.15.21 PM.png](resources/D9A3B20D47B439BA08AE8B3CA2CA25A1.png)
 [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 是比較新的函數，支援度也不錯，更重要的是，它可以當函數直接用，回傳 `Promise` 物件。 `Promise` 可以說是 javascript 最重要的物件，它包裝非同步操作，只要用 `then(resolveCallback).catch(rejectCallback)`，就可以接收非同步的結果。我們在二周目會再次見到它。
 
 把上 使用 `XMLHttpRequest` 物件的　`componentDidMount()`，全部註解掉，貼上下面程式，也會得到一樣的結果
@@ -341,7 +341,7 @@ class App extends Component {
 
 得到結果
 
-![Screen Shot 2018-10-11 at 8.51.21 PM.png](resources/48D98F9B7AB51A2F8284AF15B00E316F.png =703x348)
+![Screen Shot 2018-10-11 at 8.51.21 PM.png](resources/48D98F9B7AB51A2F8284AF15B00E316F.png)
 
 # 總結
 今天引進了非同步的概念，並利用 `XMLHttpRequest` 物件 和 `fetch()` 函數引發一個 非同步的 request，得到結果後重新渲染畫面。

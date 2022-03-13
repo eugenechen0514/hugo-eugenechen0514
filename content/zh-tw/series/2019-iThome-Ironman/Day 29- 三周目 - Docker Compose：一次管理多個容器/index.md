@@ -145,7 +145,7 @@ services:
 3. 建立 `data/nginx` 資料夾
 
 最後如下圖：
-![Screen Shot 2018-10-29 at 8.51.41 PM.png](resources/95CF4B646BC54D0285B11D0B3B027857.png =284x209)
+![Screen Shot 2018-10-29 at 8.51.41 PM.png](resources/95CF4B646BC54D0285B11D0B3B027857.png)
 
 ### 執行階段：
 建立並執行容器
@@ -154,7 +154,7 @@ docker-compose -f docker-compose-with-db.yml up
 ```
 這裡用 `-f` 指定使用的組態檔。
 
-![Screen Shot 2018-10-29 at 8.56.05 PM.png](resources/3F24B405387CD374A8EAF6889E0464DF.png =1572x678)
+![Screen Shot 2018-10-29 at 8.56.05 PM.png](resources/3F24B405387CD374A8EAF6889E0464DF.png)
 
 這樣就執行成功了，一次開了三個容器。
 

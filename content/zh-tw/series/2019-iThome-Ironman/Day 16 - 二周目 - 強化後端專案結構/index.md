@@ -86,7 +86,7 @@ router.post('/api/echo', function (req, res, next) {
 # express 的專案結構
 打開 `hello-mongo`，我們先來看看 express 給我們預設的專案結構
 
-![Screen Shot 2018-10-15 at 10.40.51 PM.png](resources/1C4AB9D30FDD908C254ED355741F71D5.png =192x401)
+![Screen Shot 2018-10-15 at 10.40.51 PM.png](resources/1C4AB9D30FDD908C254ED355741F71D5.png)
 
 * **bin** : Node.js 入口程式資料夾
     * **www** : Web Server 的入口
@@ -280,10 +280,10 @@ const indexRouter = createRootRouter({client, mongoService});
 我們總結一下，我們所做的事
 1. 建立了 `MongoService` 物件，router 會使用 `MongoService` 物件完成實作(ex: `isConnected()`)而不是把實作留在 router，router 因該專心對付 web api的介接
 2. 所有物件的建立被我們移到了 `app.js`，它們的相依性如下圖(注：這不是UML class diagram，只是表達關係)
-    ![30天鐵人-Day16-backend-dependencies.png](resources/64AB800AFC904187AFE23A01AA856C89.png =311x441)
+    ![30天鐵人-Day16-backend-dependencies.png](resources/64AB800AFC904187AFE23A01AA856C89.png)
 
 接下來我們可以更進一步重構 `POST /api/echo`，這樣我們就可以把 `./routers/index.js` 對 `client` 的相依拿掉，讓它只面對 `MongoService`，之後的相依關係就更單純了。
-![30天鐵人-Day16-backend-dependencies-v2.png](resources/AF02BBFD81A4D7906BB917D88417DAA3.png =121x521)
+![30天鐵人-Day16-backend-dependencies-v2.png](resources/AF02BBFD81A4D7906BB917D88417DAA3.png)
 
 ## 重構 `POST /api/echo`
 
@@ -331,7 +331,7 @@ const indexRouter = createRootRouter({mongoService});
 ```
 
 我們完成了，得到更單純的關係
-![30天鐵人-Day16-backend-dependencies-v2.png](resources/AF02BBFD81A4D7906BB917D88417DAA3.png =121x521)
+![30天鐵人-Day16-backend-dependencies-v2.png](resources/AF02BBFD81A4D7906BB917D88417DAA3.png)
 
 
 ## 提出 DAO
@@ -419,7 +419,7 @@ const mongoService = new MongoService({mongoClient: client, echoDao});
 ## 重構總結
 經過重構 `GET /api/mongo` 和 `POST /api/echo`，我們完成了最後的樣子
 
-![30天鐵人-Day16-backend-dependencies-v３.png](resources/F4E66F70CBF39E7C13734DAD1A02965F.png =361x511)
+![30天鐵人-Day16-backend-dependencies-v３.png](resources/F4E66F70CBF39E7C13734DAD1A02965F.png)
 
 這結構有什麼好處
 1. 商業邏輯依照職責做分割，加強可維護性

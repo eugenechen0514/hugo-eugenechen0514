@@ -73,10 +73,10 @@ ESLint 它也是一隻程式，可以透過指令執行。
     eslint --init
     ```
     之後會跑出提示，可以選要使用的規則。為了方便學習你可以照我選的，也可以自設，甚至使用Airbnb/Standard/Google這些流行的風格。通常讓人困擾的問題是： [ES6 與 ECMAScript 2015 的關係](http://es6.ruanyifeng.com/#docs/intro#ES6-%E4%B8%8E-ECMAScript-2015-%E7%9A%84%E5%85%B3%E7%B3%BB)
-    ![Screen Shot 2018-10-06 at 3.54.54 PM.png](resources/09141D0E500E3045A2137A18442E1BFC.png =747x256)
+    ![Screen Shot 2018-10-06 at 3.54.54 PM.png](resources/09141D0E500E3045A2137A18442E1BFC.png)
     選完後就會產生一個 `.eslintrc.js` 檔案
 1. 執行程式碼檢查：把上面的 `badcode.js` 存下來，用 `eslint badcode.js` 執行檢查 `badcode.js` 看看
-![Screen Shot 2018-10-06 at 4.02.07 PM.png](resources/E59D37F2B4C7A31EF23B28F6B7BA683A.png =531x166)
+![Screen Shot 2018-10-06 at 4.02.07 PM.png](resources/E59D37F2B4C7A31EF23B28F6B7BA683A.png)
     它報出一堆問題，你就可以手動修正或自動修正
 1. 自動修正：執行 `eslint badcode.js --fix` 後，程式碼變
     ``` javascript
@@ -92,7 +92,7 @@ ESLint 它也是一隻程式，可以透過指令執行。
     }
     ```
     有進步!只剩兩個 error，程式也變漂亮了
-    ![Screen Shot 2018-10-06 at 4.06.17 PM.png](resources/88895EF7C4630281726FE2BA8583F0CF.png =453x138)
+    ![Screen Shot 2018-10-06 at 4.06.17 PM.png](resources/88895EF7C4630281726FE2BA8583F0CF.png)
     另外，有哪些可以自動修正的規則？請見 [rules](https://eslint.org/docs/rules/) 的扳手圖案
     
 
@@ -102,13 +102,13 @@ ESLint 它也是一隻程式，可以透過指令執行。
 前一節用指令檢查一個檔案，總不能每次寫完程式就執行一次吧？所以大部分的編輯器(VSCode, Atom, WebStorm, Sublime)都可以安裝 ESLint Extension，把 Eslint 整合進編輯器。
 
 1. 進入 Extensions 頁
-    ![Screen Shot 2018-10-06 at 4.10.06 PM.png](resources/E00CC0DE3F2607A1379AA8CFC65F89C8.png =375x445)
+    ![Screen Shot 2018-10-06 at 4.10.06 PM.png](resources/E00CC0DE3F2607A1379AA8CFC65F89C8.png)
 1. 找esint，後安裝eslint
-    ![Screen Shot 2018-10-06 at 4.12.12 PM.png](resources/45EB0780697AD08622EFBF2CCAD9269D.png =356x169)
+    ![Screen Shot 2018-10-06 at 4.12.12 PM.png](resources/45EB0780697AD08622EFBF2CCAD9269D.png)
 1. 再 Reload
-![Screen Shot 2018-10-06 at 4.12.56 PM.png](resources/F6011CA34EFA0915CC0DDAC9139BCEB0.png =553x169)
+![Screen Shot 2018-10-06 at 4.12.56 PM.png](resources/F6011CA34EFA0915CC0DDAC9139BCEB0.png)
 1. 回到程式碼就會「看」到出問題的地方
-    ![Screen Shot 2018-10-06 at 4.13.29 PM.png](resources/AABAB7A332691530B15E6DBE938F888C.png =619x165)
+    ![Screen Shot 2018-10-06 at 4.13.29 PM.png](resources/AABAB7A332691530B15E6DBE938F888C.png)
 
 ## 設定 ESLint 組態檔
 
@@ -155,7 +155,7 @@ ESLint 它也是一隻程式，可以透過指令執行。
 1. 到 [rules頁](https://eslint.org/docs/rules/)，找到 [***no-console***](https://eslint.org/docs/rules/no-console)這個role，確認有這個規則存在
 1. 加入 `"no-console":["warn"]` 到 `rules` 裡面
 1. 變成警告的樣子，而不是嚇人的紅線了
-![Screen Shot 2018-10-06 at 4.48.50 PM.png](resources/7714B40782A58CA2B40F4C0B7A2CD480.png =516x142)
+![Screen Shot 2018-10-06 at 4.48.50 PM.png](resources/7714B40782A58CA2B40F4C0B7A2CD480.png)
 
 # 完整的修正 `badcode.js`：採用 Airbnb 風格
 1. 安裝本地ESLint，用本地程式設定組態
@@ -164,7 +164,7 @@ ESLint 它也是一隻程式，可以透過指令執行。
     ./node_modules/eslint/bin/eslint.js --init
     ```
 1. 我使用 Airbnb 風格，安裝完後重開 VSCode
-![Screen Shot 2018-10-06 at 5.31.55 PM.png](resources/DE885062B9A783E6D36DB0794FCF6170.png =725x299)
+![Screen Shot 2018-10-06 at 5.31.55 PM.png](resources/DE885062B9A783E6D36DB0794FCF6170.png)
 1. 自動修正
     ```
     ./node_modules/eslint/bin/eslint.js badcode.js --fix

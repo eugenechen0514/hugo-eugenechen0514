@@ -47,7 +47,7 @@ series = [
 我們採用的模式是，認証完成後回應 token 給 client，client 自己留著，每當client要對後端操作時會帶著 token 一併給後端，而不是用在後端保留登入資訊(session)。
 這樣做有個好處是後端是無狀態的(stateless)，任何一個台可以識別 token 的後端都可以服務 client，以提高後端的可擴展性(scalability)。
 
-![30天鐵人-Day19-auth.png](resources/62D256A4692DB8F5925C73AF7C6122C9.png =888x361)
+![30天鐵人-Day19-auth.png](resources/62D256A4692DB8F5925C73AF7C6122C9.png)
 
 基本的認証機制有幾個步驟(與上圖對應)
 1. 使用者送出帳號、密碼
@@ -214,7 +214,7 @@ Node.js 用的是 [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)。
     ```
     
     Postman 打看看
-    ![Screen Shot 2018-10-19 at 9.23.01 PM.png](resources/2C88EE51C728E80DF1828481EB66678D.png =835x473)
+    ![Screen Shot 2018-10-19 at 9.23.01 PM.png](resources/2C88EE51C728E80DF1828481EB66678D.png)
 1. 帳密比對實作
     我們假設 `verifyUser()` 會做資料庫查詢
     ``` javascript
@@ -274,7 +274,7 @@ Node.js 用的是 [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)。
     ```
     這裡用 `expiresIn` 選項可以方便地指定簽發的 JWT 多久到期，像我們設 10 秒。
 1. 試打看看
-    ![Screen Shot 2018-10-19 at 9.56.39 PM.png](resources/9782569A0A7150B227675D494DEBD681.png =1009x470)
+    ![Screen Shot 2018-10-19 at 9.56.39 PM.png](resources/9782569A0A7150B227675D494DEBD681.png)
     我們就可以得到 JWT
 1. 強化安全性
     加入這行，後端要求 client 設定 cookie
@@ -283,14 +283,14 @@ Node.js 用的是 [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)。
     ```
 
 再試打一下，查看 client(Postman) 收到回應的 headers
-![Screen Shot 2018-10-19 at 10.41.03 PM.png](resources/67EBA22B24F3AD1B269052064459317A.png =1047x364)
+![Screen Shot 2018-10-19 at 10.41.03 PM.png](resources/67EBA22B24F3AD1B269052064459317A.png)
 `HttpOnly` 設定時，cookie `token` 不能用 javascript 取出。但你可以在 Postman 的 **Cookies**，可以查看所有 cookies，你會看到 `token` 被設定
-![Screen Shot 2018-10-19 at 10.45.28 PM.png](resources/6E9F688FBB818E197957F81CF6D4A7AA.png =1051x696)
+![Screen Shot 2018-10-19 at 10.45.28 PM.png](resources/6E9F688FBB818E197957F81CF6D4A7AA.png)
 
 另外，觀察到：
 * 因為我們設定 cookie 10 秒到期(`EXPIRES_IN`)，所以時間到後再看一次就會消失。
 * 之後的 request 會一直帶著 cookies 一併送給後端
-  ![Screen Shot 2018-10-19 at 10.54.54 PM.png](resources/886A88136B411FD0398BE31DB9AE61F5.png =1176x386)
+  ![Screen Shot 2018-10-19 at 10.54.54 PM.png](resources/886A88136B411FD0398BE31DB9AE61F5.png)
   第一次打，沒有 cookies 所以印出 `{}`，第二次打，因為前一次登入成功並設定cookies，所以就會有 cookies。
 
 

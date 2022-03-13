@@ -30,7 +30,7 @@ series = [
 
 express 的核心技術之一就是 router，它之所以複雜是因為他同時包含三個重要的概念：
 
-![30天鐵人-Day18-middleware (1).png](resources/68B34854B8DCDC6B956666BC8C22C90D.png =517x258)
+![30天鐵人-Day18-middleware (1).png](resources/68B34854B8DCDC6B956666BC8C22C90D.png)
 1. 中間件(middleware)
 1. 路由(routing)
 1. 流(stream)
@@ -127,7 +127,7 @@ router.get('/', function(req, res, next) {
 ```
 有三個 router，`app`, `indexRouter`, `UserRouter`，串接圖如下：
 
-![router.png](resources/B3DFB021980EB6A56AD3CA78A1831DB6.png =979x411)
+![router.png](resources/B3DFB021980EB6A56AD3CA78A1831DB6.png)
 
 上述串接後，只能搭配出
 1. `GET /api/middleware`
@@ -199,7 +199,7 @@ app.use(function (err, req, res, next) {
 
 `express` 有內建(built-in)的 middleware。
 
-![Screen Shot 2018-10-18 at 2.09.03 PM.png](resources/3F817A7BD88C5914B6A13BBE24AB13FE.png =515x474)
+![Screen Shot 2018-10-18 at 2.09.03 PM.png](resources/3F817A7BD88C5914B6A13BBE24AB13FE.png)
 
 這是寫在套件中，你改不了的。
 
@@ -209,7 +209,7 @@ app.use(function (err, req, res, next) {
 stream 在 Node.js 是很常見的，其實我們常用的檔案存取都可以用 stream 來操作
 
 在資料傳遞的模型中，有兩個角色
-![stream.png](resources/AB06DB809EFAE7E955FD4049523E8485.png =791x138)
+![stream.png](resources/AB06DB809EFAE7E955FD4049523E8485.png)
 
 1. producer：產生資料的人
 1. consumer：消耗資料的人
@@ -224,13 +224,13 @@ stream 在 Node.js 是很常見的，其實我們常用的檔案存取都可以�
 
 * `fs.createWriteStream(path[, options])`：建立一個 write stream，拿來寫檔
     圖解 write stream 就是
-    ![fs_write_stream.png](resources/052C8B934A69688586D3EA6B1D8057B1.png =791x148)
+    ![fs_write_stream.png](resources/052C8B934A69688586D3EA6B1D8057B1.png)
 * `fs.createReadStream(path[, options])`：建立一個 read stream，拿來讀檔
     圖解 read stream 就是
-    ![read_stream.png](resources/1C664D9AF9202D5B510C7BE49604F357.png =791x148)
+    ![read_stream.png](resources/1C664D9AF9202D5B510C7BE49604F357.png)
 
 最後， stream 的迷人之處在於 `readStream.pipe(writeStream)`，就好像透過程式把兩個端點接起來，例如：copy 的 stream 版本
-![copy_stream.png](resources/FE6FE4E9C422A6D7F76E7E1ADDAE9871.png =1426x286)
+![copy_stream.png](resources/FE6FE4E9C422A6D7F76E7E1ADDAE9871.png)
 
 ``` javascript
 // copyFile.js
@@ -264,7 +264,7 @@ res.render()
 ### 不使用 `app.use(express.json())` 的後果及修正
 我們曾在 [Day 9 - 一周目- 開始玩轉後端(二)](https://ithelp.ithome.com.tw/articles/10200622) 中提到
 
-![Screen Shot 2018-10-18 at 3.56.34 PM.png](resources/FBD681B4777F01B6B85D8AC0BE5AF7C3.png =743x479)
+![Screen Shot 2018-10-18 at 3.56.34 PM.png](resources/FBD681B4777F01B6B85D8AC0BE5AF7C3.png)
 
 把 `app.js` 中的 `app.use(express.json());` 註解掉會讓 `req.body` 讀不到 JSON 資料，這是因為 `express.json()` middleware 幫我們讀資料和轉換成 JSON Object。不過，我們還是可以自己處理，利用 `req` 這個 read stream 就可以讀出資料(使用 [flowing mode](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_two_reading_modes)，可以監聽收事件)。過程如下：
 

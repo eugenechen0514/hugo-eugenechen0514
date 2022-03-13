@@ -80,7 +80,7 @@ console.log('bye');
 ```
 
 在第2,5,13,19行下中斷點，執行 debug，如下圖：
-![Screen Shot 2018-10-05 at 4.48.08 PM.png](resources/18EAD31E8DE84BF84A2E8F8B915361EC.png =798x517)
+![Screen Shot 2018-10-05 at 4.48.08 PM.png](resources/18EAD31E8DE84BF84A2E8F8B915361EC.png)
 停在第2行後，看看 ***CALL STACK*** ，目前執行在匿名函數中 (anonymous function)中，也就是，當程式執行時，我們可以假想它們被包在某個函數中且立刻被執行，像是：
 ``` javascript
 (anonymousFunction() {
@@ -90,15 +90,15 @@ console.log('bye');
 此外， ***VARIABLES->Local*** 中有在函數內可以存取的變數，但會發現 ***沒有 `ifLet`*** ，也就是第8行不能讀到`ifLet`的原因。
 
 再往下執行到第5行，
-![Screen Shot 2018-10-05 at 4.48.15 PM.png](resources/056ECD2EF5CD5EC948AA1D2BDC92159D.png =833x537)
+![Screen Shot 2018-10-05 at 4.48.15 PM.png](resources/056ECD2EF5CD5EC948AA1D2BDC92159D.png)
 多出 ***VARIABLES->Block*** ，裡面有`ifLet`，而 ***VARIABLES->Local*** 還留著。
 
 再往下執行到第13行，
-![Screen Shot 2018-10-05 at 4.48.22 PM.png](resources/64477F4C2C4C30B767580E28C0F9B7CB.png =787x551)
+![Screen Shot 2018-10-05 at 4.48.22 PM.png](resources/64477F4C2C4C30B767580E28C0F9B7CB.png)
  ***CALL STACK*** 現在進入到 `fun1` 中， ***CALL STACK*** 自然就只剩下 `innerLet` 和 `innerVar` ( **this** 晚點說)
  
 再往下執行到第19行，
-![Screen Shot 2018-10-05 at 4.48.39 PM.png](resources/D4E4371364D34E3ED3E49784106CB95F.png =822x546)
+![Screen Shot 2018-10-05 at 4.48.39 PM.png](resources/D4E4371364D34E3ED3E49784106CB95F.png)
 離開 `fun1()` 後 `innerLet` 和 `innerVar`就會被消毀，當再次回到「進來前的函數空間」， `innerLet` 和 `innerVar` 當然就存取不到了，也就是第17,18行不能讀到他們。
 
 > 可以試試把第 8, 17, 18註解拿掉，會丟出例外
@@ -142,10 +142,10 @@ obj.funA();
 obj.funF();
 ```
 下面這張圖，程式是從第14行進入至第3行，呼就叫的人是誰？因為沒有指明人，就會拿最上層的人(物件)，所以就叫 `global`，此時 `this` 是 `global`
-![Screen Shot 2018-10-05 at 5.23.30 PM.png](resources/BB0C7A4D0E853E8321076FFF7B5178C0.png =676x418)
+![Screen Shot 2018-10-05 at 5.23.30 PM.png](resources/BB0C7A4D0E853E8321076FFF7B5178C0.png)
 
 下面這張圖，程式是從第17行進入至第3行，呼就叫的人是誰？是 `obj`，所以 `this` 是 `obj` 且它的型別是 `Object`，打開來看看真的是它
-![Screen Shot 2018-10-05 at 5.26.24 PM.png](resources/A332C7A6EC8A3FA0921634CBCC5A4C9B.png =655x418)
+![Screen Shot 2018-10-05 at 5.26.24 PM.png](resources/A332C7A6EC8A3FA0921634CBCC5A4C9B.png)
 
 
 ## 閉包(Closure)：把外面的變數關在函數中使用
@@ -201,15 +201,15 @@ main();
 ```
 
 下圖中，`outer` 放入  ***VARIABLES->Closure*** 閉包域中，使我們可以存取它的值。
-![Screen Shot 2018-10-05 at 8.57.12 PM.png](resources/57505E4D075D4D4FA5F537581F0CBC9C.png =752x504)
+![Screen Shot 2018-10-05 at 8.57.12 PM.png](resources/57505E4D075D4D4FA5F537581F0CBC9C.png)
 
 下圖中，因為宣告了 `const inner`，它是屬於 ***VARIABLES->Local*** ，並設定成`outer`的值，所以 `inner = 'outer'`。然而，`outer = outer + '-fix'`，把 `outer` 改成了 `outer-fix`的值。此外，`outer` 也被放入 ***VARIABLES->Closure*** 閉包域中。
-![Screen Shot 2018-10-05 at 8.57.19 PM.png](resources/E7238EFAF967E922B289E4CC3CB3D855.png =793x513)
+![Screen Shot 2018-10-05 at 8.57.19 PM.png](resources/E7238EFAF967E922B289E4CC3CB3D855.png)
 用記憶體圖示來說，就會很清楚了，白正方形是記憶體空間，裡面會放字串值。
-![Untitled Diagram.png](resources/386E8EC1A4E5114ED813C5DBF07FFA9A.png =769x162)
+![Untitled Diagram.png](resources/386E8EC1A4E5114ED813C5DBF07FFA9A.png)
 
 最後在呼叫一次 `funA()`，得到 `outer` 被修改後的結果。
-![Screen Shot 2018-10-05 at 8.57.33 PM.png](resources/08EE751ADCE3CEA7D02DE28C1F261136.png =794x504)
+![Screen Shot 2018-10-05 at 8.57.33 PM.png](resources/08EE751ADCE3CEA7D02DE28C1F261136.png)
 
 ### 什麼時候用？
 可以用閉包包入定值，但很煩，ES6 引入的 let 可以簡化不少。

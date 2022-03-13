@@ -116,7 +116,7 @@ Jest 寫單元測試/整合測試
     ```
     這是最簡單的測試。另外， Jest 也支援測試群組 `describe/afterAll/afterEach/beforeAll/beforeEach` 之類 [Globals API](https://jestjs.io/docs/en/api)。
 4. 執行測試 `npm run test`
-    ![Screen Shot 2018-10-20 at 2.06.05 PM.png](resources/2A09DD98AFB153316416EDEFA35A509D.png =707x407)
+    ![Screen Shot 2018-10-20 at 2.06.05 PM.png](resources/2A09DD98AFB153316416EDEFA35A509D.png)
     會看到它找到一個測試(tests)
 
 ## 測試非同步函數： 測試 `VerfiyJWT()` 產生的 middleware
@@ -146,7 +146,7 @@ describe('VerifyJWT', () => {
 
 你可以刻意的把 `except` 改成值 `object`，就會測式不通過。
 
-![Screen Shot 2018-10-20 at 2.37.21 PM.png](resources/1075EC0BAE735B9DAD927E71C4CC3BF6.png =720x585)
+![Screen Shot 2018-10-20 at 2.37.21 PM.png](resources/1075EC0BAE735B9DAD927E71C4CC3BF6.png)
 
 我們可以看出幾點：
 1. 測試對象： `VerifyJWT`
@@ -178,7 +178,7 @@ describe('VerifyJWT', () => {
 ```
 我們真的找一個有效的 token 放在 `req.cookie.token` 中，middleware 應該要叫起 `next()`。
 這裡我們用到 `done` 這參數，這是 Jest 在非同步測時需要呼叫的，若執行 `done()` 就是跟 jest 說此測式正常結束了，若執行 `done(error)` 就是出問題了。假如你不叫 `done()` 或是 middleware 中 沒叫 `next()` 就會測試失敗。
-![Screen Shot 2018-10-20 at 3.06.57 PM.png](resources/54868B6C34BE9796302E8B22BD6A9BA8.png =974x370)
+![Screen Shot 2018-10-20 at 3.06.57 PM.png](resources/54868B6C34BE9796302E8B22BD6A9BA8.png)
 
 > 除了這種 callback的版本，其它對於非同步的測試還有 Promise, async/await的版本[Testing Asynchronous Code](https://jestjs.io/docs/en/asynchronous)。
 
@@ -248,7 +248,7 @@ describe('VerifyJWT', () => {
     verifyJWT(jwt, {secret})
     ```
 1. 再執行一次測試，還是通過，表示沒有程式壞掉
-    ![Screen Shot 2018-10-20 at 4.08.30 PM.png](resources/D4C2771E5591E0087ABB8F16256EF90C.png =697x300)
+    ![Screen Shot 2018-10-20 at 4.08.30 PM.png](resources/D4C2771E5591E0087ABB8F16256EF90C.png)
 
 ### 處理 `jsonwebtoken` 相依：`jsonwebtoken.verify` 改成外界送入
 1. 類似上面的操作，`options` 取出外界送入的 `verify` 屬性，預設值是原來的 `jsonwebtoken.verify`

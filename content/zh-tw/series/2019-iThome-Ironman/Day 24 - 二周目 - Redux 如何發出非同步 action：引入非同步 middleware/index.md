@@ -212,7 +212,7 @@ done
 ```
 
 圖解就是如下：
-![30天鐵人-Day23-middleare.png](resources/1355C86462EF70AB7AC897109176F983.png =1403x910)
+![30天鐵人-Day23-middleare.png](resources/1355C86462EF70AB7AC897109176F983.png)
 (C) 是才是範例的圖，(B) 是只看 G 的作用，(A) 是沒有任何 middleware 的圖。(你可能需要花時間自己想圖的作用)
 
 ## Redux 原版 middleware
@@ -447,9 +447,9 @@ state after dispatch: {"message":"changed"}
 
 1. 新形態的 action：它讓我們可以派分 promise action 這種新形態的 action，例如：在 `PromiseMiddleware` 中解讀 promise action, 就可以產生其它 action 來模擬 Promise 的運作過程。
 1. 派分任意次 action：我們可以派分任意多次的 `next(action)`，就像我們發出了二個 actions
-    ![30天鐵人-Day24-PromiseMiddleware.png](resources/BE60D4DDF44276512F285BD9BA0F1A5F.png =522x221)
+    ![30天鐵人-Day24-PromiseMiddleware.png](resources/BE60D4DDF44276512F285BD9BA0F1A5F.png)
     > 實務上，在發出 某 action 後可能又要發出其它 action，如下圖
-        ![30天鐵人-Day24-3.png](resources/E6241B017995580415EC9BC4A795698D.png =801x391)
+        ![30天鐵人-Day24-3.png](resources/E6241B017995580415EC9BC4A795698D.png)
       雖然這大量產生的 action 讓人有點詬病，但使用良好的非同步 action 套件，可以一定程度控制我們的程式碼，避免程式碼混亂。
 1. action 自由性：`next(action)` 中的 action 可以在 middleware 中任意建立、修改、更換，例如：我們建立新的 action `{type: success(type),  payload: data, promise, ...others}` ( action type 加入後綴詞) 
 

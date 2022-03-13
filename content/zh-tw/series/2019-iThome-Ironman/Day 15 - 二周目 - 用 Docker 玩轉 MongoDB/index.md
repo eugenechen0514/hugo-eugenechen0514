@@ -43,8 +43,8 @@ Docker 它可以安裝在不同的作業系統，它關鍵的技術是 **容器(
 ## 用 docker 架設 mongodb
 ### docker 環境
 1. 依照自己作業系統安裝
-    ![Screen Shot 2018-10-14 at 8.31.34 PM.png](resources/A5C5F4F954277B7F0BDF61F4BB19350F.png =744x367)
-1. 灌完後執行 docker，就會有個常駐的小圖標![Screen Shot 2018-10-14 at 8.33.44 PM.png](resources/AF9F155ACD00D483BA5D270B7D76CC9A.png =55x21)，之後我們就可以用 `docker` 指令了
+    ![Screen Shot 2018-10-14 at 8.31.34 PM.png](resources/A5C5F4F954277B7F0BDF61F4BB19350F.png)
+1. 灌完後執行 docker，就會有個常駐的小圖標![Screen Shot 2018-10-14 at 8.33.44 PM.png](resources/AF9F155ACD00D483BA5D270B7D76CC9A.png)，之後我們就可以用 `docker` 指令了
 
 ### mongodb 容器執行
 1. 複製 `hello-express`專案(或繼續使用)改名成 `hello-mongo`。(若沒有 `hello-express` 的人可以看 [Day 8 - 一周目- 開始玩轉後端(一)](https://ithelp.ithome.com.tw/articles/10200476))
@@ -52,7 +52,7 @@ Docker 它可以安裝在不同的作業系統，它關鍵的技術是 **容器(
     ``` shell
     docker pull mongo:4.1
     ```
-    ![Screen Shot 2018-10-14 at 9.30.20 PM.png](resources/352BC4CC7A664C4E49C6C4E7A91EDE59.png =760x275)
+    ![Screen Shot 2018-10-14 at 9.30.20 PM.png](resources/352BC4CC7A664C4E49C6C4E7A91EDE59.png)
     > `docker images` 可以列出有下載的映象檔，看看有沒有下載成功
 
 1. 在 `hello-mongo`根目錄建立一個 data 資料夾 `mkdir data`。用來放 mongodb 的資料，可以讓 mongo 容器刪除時可以留下資料，下次建立容器可以繼續使用
@@ -61,7 +61,7 @@ Docker 它可以安裝在不同的作業系統，它關鍵的技術是 **容器(
     docker run --name mongo4 -v $(pwd)/data:/data/db -d -p 27017:27017 --rm mongo:4.1
     ```
     > `docker ps` 確認容器有執行
-    ![Screen Shot 2018-10-14 at 10.12.28 PM.png](resources/4CA0455B790BCCEE71D4C32F684240C2.png =988x44)
+    ![Screen Shot 2018-10-14 at 10.12.28 PM.png](resources/4CA0455B790BCCEE71D4C32F684240C2.png)
     
     > 我們用映象檔 `mongo:4.1` 建立了名為 `mongo4` 的容器，掛載 `hello-mongo` 根目錄下的 `data` 資料夾到容器內。容器在背景執行，且對外的 port 號是 27017。當容器停止後自行移除。
 
@@ -69,7 +69,7 @@ Docker 它可以安裝在不同的作業系統，它關鍵的技術是 **容器(
     ``` shell
     docker exec mongo4 mongo --eval "print(version())"
     ```
-    ![Screen Shot 2018-10-14 at 10.23.34 PM.png](resources/8DD4D1DB582E24824B844B9A3670598E.png =635x87)
+    ![Screen Shot 2018-10-14 at 10.23.34 PM.png](resources/8DD4D1DB582E24824B844B9A3670598E.png)
 1. 若需要停止容器 (關掉 mongodb 資料庫)，請輸入
     ``` shell
     docker stop mongo4
@@ -97,11 +97,11 @@ Install MongoDB](https://docs.mongodb.com/manual/installation/)。只是上面�
 因為 mongo 容器中除了資料庫的執行檔還有包含 shell client，所以進入容器就可以使用 `mongo` 指令，也不用擔心本機端安裝的 shell clinet 版本號不合資料庫版本號。
 
 1. 輸入 `docker exec -it mongo4 bash`，就可以進入容器內
-    ![Screen Shot 2018-10-14 at 10.57.36 PM.png](resources/58781C2E13DC70A6E0FAFFE8074812BE.png =460x36)
+    ![Screen Shot 2018-10-14 at 10.57.36 PM.png](resources/58781C2E13DC70A6E0FAFFE8074812BE.png)
 1. 就能用 `mongo` 指令，連入資料庫
-    ![Screen Shot 2018-10-14 at 10.55.17 PM.png](resources/349D63CF3B4B04FB24699787A1561FB2.png =935x425)
+    ![Screen Shot 2018-10-14 at 10.55.17 PM.png](resources/349D63CF3B4B04FB24699787A1561FB2.png)
 1. 不用的時候直接關 terniaml　或 ctrl + c 和 `exit` 就可以離開容器
-    ![Screen Shot 2018-10-14 at 11.01.11 PM.png](resources/29B627D1AF384074D3ADDE453BB3E241.png =937x483)
+    ![Screen Shot 2018-10-14 at 11.01.11 PM.png](resources/29B627D1AF384074D3ADDE453BB3E241.png)
 
 > `mongo` 指令直接下時是連到本機端 localhost 的 27017 port 的預設值
 
@@ -230,24 +230,24 @@ router.post('/api/echo', function (req, res, next) {
     ``` javascript
     db.echo.find()
     ```
-    ![Screen Shot 2018-10-15 at 10.57.45 AM.png](resources/40459C6C80889ED4341F52A0CF042A4F.png =480x95)
+    ![Screen Shot 2018-10-15 at 10.57.45 AM.png](resources/40459C6C80889ED4341F52A0CF042A4F.png)
 
 ### 怎麼查文件
 可能的操作很多，自己查文件比較有效率，所以說說我怎看文件的，提供剛學習的人一些方向
 
 一進入[MongoDB Node.JS Driver](https://mongodb.github.io/node-mongodb-native/?jmp=docs)，會看到 Reference 和 API
-![Screen Shot 2018-10-15 at 11.04.19 AM.png](resources/DCCC4B74E643431DD39F89ED7B639CB1.png =1045x494)
+![Screen Shot 2018-10-15 at 11.04.19 AM.png](resources/DCCC4B74E643431DD39F89ED7B639CB1.png)
 
 1. Reference：你可能要學習使用，就選這個
-    ![Screen Shot 2018-10-15 at 11.10.10 AM.png](resources/9B76BA79C040663B689954AF79179534.png =1055x453)
+    ![Screen Shot 2018-10-15 at 11.10.10 AM.png](resources/9B76BA79C040663B689954AF79179534.png)
     * Quick Start/Getting started：大部分的文件都會有這個，給想要立刻使用、體驗，不需要太多的預備知識。沒概念的人或新手就選這個玩一玩。
     * Tutorials: 學習一些必要知識的教學
-        ![Screen Shot 2018-10-15 at 11.12.54 AM.png](resources/E4631C7FDA077D896FC79827692FCE01.png =249x408)
+        ![Screen Shot 2018-10-15 at 11.12.54 AM.png](resources/E4631C7FDA077D896FC79827692FCE01.png)
 1. API：你已有使用概念，但想要查函數的定義/簽章或看看還有提供什麼函數？
-    ![Screen Shot 2018-10-15 at 11.14.54 AM.png](resources/48779F9FDAE96FDA6DC0A567EFC55488.png =736x690)
+    ![Screen Shot 2018-10-15 at 11.14.54 AM.png](resources/48779F9FDAE96FDA6DC0A567EFC55488.png)
     
     還可以查函數名，輸入 `insert`，就可以查到 `Collection`類別的 `inserOne` 函數定義
-    ![Screen Shot 2018-10-15 at 11.17.39 AM.png](resources/98FB1A5A478C17F435A2E7D9C25ADA37.png =1446x517)
+    ![Screen Shot 2018-10-15 at 11.17.39 AM.png](resources/98FB1A5A478C17F435A2E7D9C25ADA37.png)
     
     例如：我要插入資料時
     1. 怎麼拿到 collection？ `db.collection('echo')` 回傳 collection 物件，不是 promise

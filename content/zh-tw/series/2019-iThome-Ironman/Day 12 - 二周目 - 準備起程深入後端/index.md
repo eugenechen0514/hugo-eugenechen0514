@@ -76,7 +76,7 @@ series = [
 首先，一隻程式是在執行時會把程式碼載入記憶體中等待 CUP 執行，這在記憶體中的實體就叫 `Process`。為了更有效率的使用 CPU，人們發明了更小執行單位，`Thread`，它是CUP最小的執行單位。
 
 一般而言，一個 Process 可以有多個 `Thread`，以達到 CPU 多工，
-![Screen Shot 2018-10-12 at 5.12.22 PM.png](resources/62258B7174C2B0D7984DE1CA07F9CBCC.png =807x312)
+![Screen Shot 2018-10-12 at 5.12.22 PM.png](resources/62258B7174C2B0D7984DE1CA07F9CBCC.png)
 
 而 Node.js 有一個很重要的事實
 ```
@@ -87,7 +87,7 @@ series = [
 有人會問：是不是說他的效率不好呢？也不是這麼說。不論一個 Process 內有多少Thread，都還是會受到 CUP 實際可以運算的數量(ex: 四核、八核)限制。太多的Thread會反而會造成[排程(scheduling)](https://zh.wikipedia.org/wiki/%E6%8E%92%E7%A8%8B)的系統負擔。反觀，單執行緒就只佔一個CPU運算單位，執行幾個 Node.js 程式就可以利用多少CPU。那…能不能說 Node.js 效能比其它語言好？我想是不能的，因為還要考慮程式碼的複雜程度、CPU的排程…等。
 
 下圖是執行 `hello-express` 的結果
-![Screen Shot 2018-10-12 at 4.58.58 PM.png](resources/53A9E2F2F257AB907D23E6F622744C4D.png =789x119)
+![Screen Shot 2018-10-12 at 4.58.58 PM.png](resources/53A9E2F2F257AB907D23E6F622744C4D.png)
 
 > 關於有Process/Thread興趣的人可以看看： [Program/Process/Thread 差異](https://medium.com/@totoroLiu/program-process-thread-%E5%B7%AE%E7%95%B0-4a360c7345e5)
 
@@ -118,11 +118,11 @@ moreWork(); // will run before console.log
 `非阻塞`的特色在處理 request 的 web server 很有幫助，一個 request 來的時後很多時候都要到資料庫讀取資料(I/O)。若讀取資料的操作是同步時，我們要等到資料庫回傳資料程式才能往下執行，這時其它的 request 都要等之前 request 結束才能換它們處理。然而，若讀取資料的操作是非同步時，我們就可以用等資料庫回傳前的時間來處理其它 request。
 
 我們可以做個實驗，`hello-express`之前做了兩個 API， `GET /api/sayHi`、`POST /api/echo`，把 `GET /api/sayHi` 內的 `res.sned('hi')` 註解，就假設我們做的非同步的I/O，一直沒給回應。若這時用 Postman 打他
-![Screen Shot 2018-10-12 at 8.32.45 PM.png](resources/1058A66480C8619F510C8EC42431C0F2.png =1381x475)
+![Screen Shot 2018-10-12 at 8.32.45 PM.png](resources/1058A66480C8619F510C8EC42431C0F2.png)
 Postman不會給回應，因為我們一直不送出結果(除非 request timeout)。
 
 若馬上發出 `POST /api/echo`
-![Screen Shot 2018-10-12 at 8.32.54 PM.png](resources/60B3686A563FBFDAD79CFBD48A1347F8.png =1377x425)
+![Screen Shot 2018-10-12 at 8.32.54 PM.png](resources/60B3686A563FBFDAD79CFBD48A1347F8.png)
 會發現，一樣可以馬上回應，就算前一個 request 還沒完成，Node.js 還是可以回應其它的 request。
 
 ## Node.js適合 I/O bound 的工作，不適合 CPU bound 的工作

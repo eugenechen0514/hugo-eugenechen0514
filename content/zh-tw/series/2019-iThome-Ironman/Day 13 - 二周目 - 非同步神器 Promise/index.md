@@ -96,7 +96,7 @@ series = [
     ```
     就開始執行，`callback` 這變數因為箭頭函數產生閉包 (見：[Day 5 - 一周目- 從VSCode debug 模式看作用域(Scope)、this、閉包(Closure)](https://ithelp.ithome.com.tw/articles/10200107))，如下圖：
     
-    ![Screen Shot 2018-10-13 at 8.24.01 PM.png](resources/A2220A81958E85F4511AF5107AC80A7C.png =699x345)
+    ![Screen Shot 2018-10-13 at 8.24.01 PM.png](resources/A2220A81958E85F4511AF5107AC80A7C.png)
     
     `callback`有值，值是我們送入的
     ``` javascript
@@ -109,7 +109,7 @@ series = [
 這樣就完成了把同步函數 `addSum(numbers)` 轉成非同步函數 `addSum(numbers, callback)`。
 
 > 惡搞：你可以把 `setTimeout()` 改成 `setInterval()`，`setInterval()` 會一直在指定時間內重做(直到你 `clearInterval()`)，我們改成 1000 ms，就會一直印出 3。
-![Screen Shot 2018-10-13 at 8.29.22 PM.png](resources/7A37DED9F94B89DE403F08461C880D6A.png =612x533)
+![Screen Shot 2018-10-13 at 8.29.22 PM.png](resources/7A37DED9F94B89DE403F08461C880D6A.png)
 你可以想想為什麼程式停不了？因為 event loop 的 timer queue 的 callback 一直在的關係，queue 永遠非空。
 
 需要自己做的非同步函數的情況，我還真的比較少發生，因為這表示你用到大量的CPU計算，這時候你應該開子行程(subprocess)處理，主行程改用非同步呼叫子行程處理，這個技巧未來會提。反而，大部分是要重新包裝非同步函數，或使用別人的非同步函數。
@@ -201,7 +201,7 @@ addSumPromise(numbers)
 console.log('done');
 ```
 就可以得到
-![Screen Shot 2018-10-13 at 9.21.54 PM.png](resources/B1FDC1BCFFA2C13CEB9B5E6D0B11D044.png =1104x329)
+![Screen Shot 2018-10-13 at 9.21.54 PM.png](resources/B1FDC1BCFFA2C13CEB9B5E6D0B11D044.png)
 `addSumPromise({})` 會得到一個 reject promise。我們注意以下幾點：
 1. `console.log('done')` 一樣有執行，不會因為 reject promise。
 2. 新版的Node.js 現在會告訢你有一個未處理的 Promise，且這 Error 不是例外發生，不會引起程式插斷(interrupts)，執行會一直下去。因此，你不處理的話就這錯誤就不見了。
@@ -276,7 +276,7 @@ fetchPerson('Billy')
     })
     .catch(console.error);
 ```
-![Screen Shot 2018-10-13 at 10.20.34 PM.png](resources/A4512ADFF19A9D00D47631D1EC44358B.png =617x448)
+![Screen Shot 2018-10-13 at 10.20.34 PM.png](resources/A4512ADFF19A9D00D47631D1EC44358B.png)
 
 我們利用 `then()` 把非同步操作串接起來，且 `fetchPerson()`、`fetchOrders()`任一個Promise 發生 reject 才會引起 `.catch()` 發生。若前面的任一個Promise reject，後面的 `then()` 都不會發生直到 `catch()`。（你可以把解開註解看看 `// return Promise.reject(new Error('name is not string'));`）
 

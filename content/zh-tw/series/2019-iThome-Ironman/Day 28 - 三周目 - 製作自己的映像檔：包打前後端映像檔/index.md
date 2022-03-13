@@ -123,7 +123,7 @@ series = [
 ### 執行建置映像檔
 只要簡單下指令： `docker build --network host -f="Dockerfile" -t="ithelp/backend:1.0.0" .`
 
-![Screen Shot 2018-10-26 at 5.23.32 PM.png](resources/BAC9CD15B7191C536285426E812B228C.png =938x490)
+![Screen Shot 2018-10-26 at 5.23.32 PM.png](resources/BAC9CD15B7191C536285426E812B228C.png)
 
 這裡的
 * `--network host`：使用**私有 NPM 時要小心**。設定建置時的網路為 host。 時，`http://127.0.0.1:4873` 才能訪問到 host 的私有庫。不然， `http://127.0.0.1` 會是建置時的沙盒環境。
@@ -132,7 +132,7 @@ series = [
 * `.` 是指本機端當前的目錄。
 
 用 `docker images` 查看是否有建立
-![Screen Shot 2018-10-26 at 10.57.34 PM.png](resources/7A49B48B1C697B44452EE73FE40F6141.png =852x42)
+![Screen Shot 2018-10-26 at 10.57.34 PM.png](resources/7A49B48B1C697B44452EE73FE40F6141.png)
 
 ### 測試是否可以執行後端映像檔
 
@@ -171,7 +171,7 @@ docker run --rm -p 3001:4000 --env PORT=4000 --name ithelp.backend ithelp/backen
 前端的打包後的檔案也要放在網頁伺服器，別人才能從瀏覽器訪問。我們使用 Nginx 網頁伺服器基底，它也要包入我們的前端映像檔。
 
 1. 先進行打包 `npm run build`
-    ![Screen Shot 2018-10-27 at 3.19.37 PM.png](resources/99129B9FDB3D5488E06BCE0A2DD11C6F.png =758x467)
+    ![Screen Shot 2018-10-27 at 3.19.37 PM.png](resources/99129B9FDB3D5488E06BCE0A2DD11C6F.png)
     它產生了一個 `build` 的資料夾，裡面放著打包後的所有檔案，所以這就是前端要發佈的所有檔案。
 1. 在根目錄建立 `Dockerfile`
     ``` dockerfile
@@ -196,7 +196,7 @@ docker run --rm -p 3001:4000 --env PORT=4000 --name ithelp.backend ithelp/backen
 
 ### 建置前端映像檔
 下指令： `docker build -f="Dockerfile" -t="ithelp/frontend:1.0.0" .`
-![Screen Shot 2018-10-27 at 3.43.46 PM.png](resources/81DD26A84E52F3B3B3CF95F7F28D5760.png =820x295)
+![Screen Shot 2018-10-27 at 3.43.46 PM.png](resources/81DD26A84E52F3B3B3CF95F7F28D5760.png)
 
 ### 建立並執行
 跟之前一樣
@@ -235,9 +235,9 @@ docker run --rm -p 3001:3001 --name ithelp.backend ithelp/backend:1.0.0 npm run 
 docker run --rm -p 80:80 --name ithelp.frontend ithelp/frontend:1.0.0
 ```
 
-![Screen Shot 2018-10-27 at 3.55.02 PM.png](resources/E66E1EF609B82A94DD66C67BAD6FFC2C.png =843x299)
+![Screen Shot 2018-10-27 at 3.55.02 PM.png](resources/E66E1EF609B82A94DD66C67BAD6FFC2C.png)
 > `POST /api/echo` 是回應 *500* 耶？ 別怕，那是我們曾在 [Day 19 - 二周目 - 帳密認証與JWT (JSON Web Token)傳遞](https://ithelp.ithome.com.tw/articles/10203292) 加入的 JWT 驗証。
-    ![Screen Shot 2018-10-27 at 4.00.11 PM.png](resources/3E230C6C0AF12F8F154C78B13703B3C6.png =929x399)
+    ![Screen Shot 2018-10-27 at 4.00.11 PM.png](resources/3E230C6C0AF12F8F154C78B13703B3C6.png)
 
 # 總結
 

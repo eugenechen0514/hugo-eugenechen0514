@@ -34,7 +34,7 @@ series = [
 
 軟體架構常見的有：Centralized computing，peer-to-peer architecture, [Client–server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model)…等。而本主題採的 ***前後端架構***，是屬於 **Client–server model**。　Client 指的是終端用戶的網頁瀏覽器，Server 指的是提供實際資料或計算的主機。
 
-![backend-frontend.png](resources/4A37F81C81ABE9721E56C6EEB9A0F95A.png =675x167)
+![backend-frontend.png](resources/4A37F81C81ABE9721E56C6EEB9A0F95A.png)
 
 1. 後端(backend)：儲存資料、計算資料、提供資料、提供服務(商業邏輯)的區塊，雖然圖片看起來很得簡單，但實際上的它們可能是叢集的方式存在，或依照能功性被切割(ex: [微服務(Microservices)](https://zh.wikipedia.org/wiki/%E5%BE%AE%E6%9C%8D%E5%8B%99))
     1. 資料庫(database)：用儲存、計算、提供資料，常見的[資料庫關聯式(Relational database)](https://zh.wikipedia.org/zh-tw/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93) 像是： MySQL/MSSQL 和 [NoSQL 資料庫](https://zh.wikipedia.org/wiki/NoSQL)：MongoDB，Apache Cassandra 和 Redis。我們將會選擇用 MongoDB 來當作資料庫
@@ -66,7 +66,7 @@ series = [
     ``` shell
     npm install -g express-generator
     ```
-    ![Screen Shot 2018-10-07 at 11.27.36 PM.png](resources/4597584E09755386B431F256406A5D74.png =645x74)
+    ![Screen Shot 2018-10-07 at 11.27.36 PM.png](resources/4597584E09755386B431F256406A5D74.png)
     這裡因為有檔案寫入權限的問題，所以需要用 [`sudo`](http://www.runoob.com/linux/linux-comm-sudo.html)
 1. 使用`express` 指令：用 `express` 指令產生一個 Express 框架的 Node.js 專案
     1. 開一個Node.js 專案：建立一個名為 `hello-exprss` 的資料夾，並以此專案為根目錄
@@ -79,7 +79,7 @@ series = [
         express --view hbs .
         ```
         會自動產生整個 Express 專案(Node.js 專案)的結構
-        ![Screen Shot 2018-10-08 at 5.07.48 PM.png](resources/F12F0291477F5509BC4BDDF291E9A3DD.png =416x344)
+        ![Screen Shot 2018-10-08 at 5.07.48 PM.png](resources/F12F0291477F5509BC4BDDF291E9A3DD.png)
         
         這裡看到 `--view` 選項，這是在設定[Express 樣版引擎](https://expressjs.com/en/guide/using-template-engines.html) 要用哪一個？    我選擇用 [handlebars](http://handlebarsjs.com/)。
         **樣版引擎** 是拿來寫 HTML 樣版(template)用的，把 HTML 寫好，留下資料要填入的欄位，當 request 來的時候就可以把字串填入，例：
@@ -95,7 +95,7 @@ series = [
         `{{username}}` 就是未來要填入的字串，樣版引擎可以幫我們把字串填入(ex: `const html = template({username: 'billy'});`)，就會產生最後的 HTML，就可以回傳了。
         
         > 可以輸入 `express --help` 查看更多
-        ![Screen Shot 2018-10-08 at 5.04.56 PM.png](resources/EE0567D94C5DAE4C16F854B921D5E1A5.png =774x258)
+        ![Screen Shot 2018-10-08 at 5.04.56 PM.png](resources/EE0567D94C5DAE4C16F854B921D5E1A5.png)
 
 1. 安裝相依套件：在專案根目錄的 terminal 下執行
     ``` shell
@@ -116,9 +116,9 @@ series = [
         就是在執行 `node ./bin/www`
 1. 查看是否安裝成功
     打開瀏覽器，到 `http://localhost:3000/`，看到下圖就表是成功了
-    ![Screen Shot 2018-09-20 at 9.52.27 PM.png](resources/C5293ADCCE414D524A26F84831E63BDF.png =257x151)
+    ![Screen Shot 2018-09-20 at 9.52.27 PM.png](resources/C5293ADCCE414D524A26F84831E63BDF.png)
     若查看 terminal，可以看到從瀏覽器送出的 requests
-    ![Screen Shot 2018-10-08 at 5.27.28 PM.png](resources/C6171ACA9844B33EC3F53E19959A9875.png =594x129)
+    ![Screen Shot 2018-10-08 at 5.27.28 PM.png](resources/C6171ACA9844B33EC3F53E19959A9875.png)
 
 ## 停止 hello-express
 停止很簡單，在執行 express的 terminal 中，用按鍵
@@ -126,7 +126,7 @@ series = [
 ctl + c
 ```
 會看到 `^C` 終止執行
-![Screen Shot 2018-10-08 at 5.32.27 PM.png](resources/6F776917EB044D32387901C7AB44977D.png =600x146)
+![Screen Shot 2018-10-08 at 5.32.27 PM.png](resources/6F776917EB044D32387901C7AB44977D.png)
 
 ## 背景執行伺服器
 伺服器的執行應該要能在背景運作，不能因為關閉 terminal 就無法運作。這裡只先列出來，未來有機會再說明
@@ -144,7 +144,7 @@ ctl + c
 
 以下用 Chrome 示範：
 1. 在書籤加入一個新的書籤
-![Screen Shot 2018-10-08 at 9.27.36 PM.png](resources/7E6F7617112169347A0EF83B2CA82A9D.png =312x403)
+![Screen Shot 2018-10-08 at 9.27.36 PM.png](resources/7E6F7617112169347A0EF83B2CA82A9D.png)
 
 2. 填入 Name, URL
     Name: iT邦幫忙工具列置底
@@ -152,8 +152,8 @@ ctl + c
     ``` javascript
     javascript: (function () { function cssText(obj) { return Object.keys(obj).map(key => `${key}: ${obj[key]};`).join(' '); } var doms = window.document.getElementsByClassName('editor-toolbar'); var dom = doms.length > 0 ? doms[0] : undefined; if(!dom) return; var style = dom.style || {}; style.bottom = '10px'; style.right = '0px'; style.position = 'fixed'; style.zIndex = '10'; })();
     ```
-    ![Screen Shot 2018-10-08 at 9.30.57 PM.png](resources/0BBA4345B88B1D84617C8B28352E329D.png =499x146)
+    ![Screen Shot 2018-10-08 at 9.30.57 PM.png](resources/0BBA4345B88B1D84617C8B28352E329D.png)
 
 之後就在編輯模式時，點這書籤就好了。
 
-![Screen Shot 2018-10-08 at 10.00.47 PM.png](resources/A21934DC1E7813828152A7FCFC445EFB.png =862x437)
+![Screen Shot 2018-10-08 at 10.00.47 PM.png](resources/A21934DC1E7813828152A7FCFC445EFB.png)
