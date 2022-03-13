@@ -1,6 +1,6 @@
 +++
 title = "Day 1 - 前言／開發環境準備"
-date = "2018-09-17"
+date = "2018-10-01"
 description = "最近剛好在做自己的個人網站，整理自己的技能樹，想要透過「iT邦幫忙鐵人賽」整理自己的開發經驗。"
 featured = false
 categories = [
