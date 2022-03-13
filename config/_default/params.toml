@@ -1,4 +1,5 @@
 # mainSections = ["post", "posts"] # Default to ["posts"].
+mainSections = ['posts', 'series']
 
 # titleSeparator = "|" # Title separator. Default to "-".
 
