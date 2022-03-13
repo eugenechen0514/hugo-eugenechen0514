@@ -2,6 +2,8 @@
 
 ```
 hugo server -D
+or
+hugo server --disableFastRender
 ```
 
 # deploy
