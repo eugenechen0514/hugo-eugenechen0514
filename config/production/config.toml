@@ -1,3 +1,6 @@
 baseURL = "/"
 #googleAnalytics = "G-ZWYL79X38Y"
 #googleAnalytics = ""
+
+# Ref: https://eugenechen0514.disqus.com/
+#disqusShortname = 'eugenechen0514'

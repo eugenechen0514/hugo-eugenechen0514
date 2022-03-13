@@ -77,9 +77,9 @@ titleCase = true # Capitalized title.
   sa = false # Adaptations must be shared under the same terms.
 
 [utterances]
-  repo = "razonyang/hugo-theme-bootstrap-comments" # Replace with your repository.
+  repo = "eugenechen0514/eugenechen0514.github.io" # Replace with your repository.
   #issueTerm = "pathname" # pathname, url, title, og:title
-  #label = "comment"
+  label = "comment"
   theme = "github-dark" # github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark.
 
 [search]
