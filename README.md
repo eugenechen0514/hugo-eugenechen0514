@@ -13,7 +13,7 @@ website
 ``` 
 cd public
 git add .
-git commit -a -m "something"
+git commit -a -m "update website"
 git push
 cd ..
 ```
