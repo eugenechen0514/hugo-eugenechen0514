@@ -1,5 +1,6 @@
 dateFormat = "2006-01-02"
 description = ""
+mainSections = ['posts', 'series']
 keywords = "Hugo, Bootstrap, 部落格主題"
 [archive]
   dateFormat = "01-02"
